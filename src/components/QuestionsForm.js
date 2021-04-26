@@ -17,7 +17,7 @@ export class QuestionsForm extends Component {
                     <Form.Group className={styles.formGroup}>
                         <Form.Label className={styles.formLabel}>No. of questions :</Form.Label>
                         <Form.Control className={styles.formControl} name="NumOfQuestions"/>
-                        <Form.Text className={styles.formHint} muted>minimum : 1, maximum : 50</Form.Text>
+                        <Form.Text className={styles.formHint} muted>minimum : 1, maximum : 50, default: 10</Form.Text>
                     </Form.Group>
                     <Form.Group className={styles.formGroup}>
                         <Form.Label className={styles.formLabel}>Category</Form.Label>
@@ -42,9 +42,11 @@ export class QuestionsForm extends Component {
                             <option value="boolean">True/False</option>
                         </Form.Control>
                     </Form.Group>
-                    <Button type="submit" className={styles.button}>
+                    <div className={styles.buttonContainer}>
+                        <Button type="submit" className={styles.button}>
                         Let's Play!
-                    </Button>
+                        </Button>
+                    </div>
                 </Form>
             </div>
         )

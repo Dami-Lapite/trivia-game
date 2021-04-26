@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import QuestionsForm from './components/QuestionsForm';
 import Question from './components/Question';
+import getURL from './functions/getURL';
 import './App.css';
 
 class App extends Component { 
@@ -17,8 +18,8 @@ class App extends Component {
     }
   }
 
-  async fetchQuestions(options) {
-    let response = await fetch(`https://opentdb.com/api.php?amount=10&type=boolean`);
+  async fetchQuestions(url) {
+    let response = await fetch(url);
     if (response.status === 200) {
         let data = await response.json();
         return data;
@@ -27,8 +28,18 @@ class App extends Component {
     }
   }
 
-  callBackFunction = (options) =>{
-    this.fetchQuestions(options)
+  nextCallBackFunction = ()=>{
+    let newIndex = this.state.questionIndex + 1;
+    if(newIndex < this.state.questions.length){
+      this.setState({questionIndex: newIndex});
+    }else{
+      this.setState({hasQuestions: false, questionIndex: 0, questions:[]})
+    }
+  }
+
+  formCallBackFunction = (options) =>{
+    let url = getURL(options)
+    this.fetchQuestions(url)
       .then(data =>{
         this.setState({
           questions: data.results,
@@ -61,9 +72,9 @@ class App extends Component {
       <div className="container">
         <div className="card">
           {!this.state.hasQuestions ? (
-            <QuestionsForm categories={this.state.categoryList} parentCallBack={this.callBackFunction} />
+            <QuestionsForm categories={this.state.categoryList} parentCallBack={this.formCallBackFunction} />
           ):(
-            <Question questionData={this.state.questions[this.state.questionIndex]}/>
+            <Question questionData={this.state.questions[this.state.questionIndex]} parentCallBack={this.nextCallBackFunction}/>
           )}
         </div>
       </div>
