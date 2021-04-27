@@ -1,17 +1,17 @@
 .questionContainer{
-    padding: 30px;
+    padding: 10px 30px;
 }
 
 .questionTextContainer{
     text-align: center;
-    padding-top: 20px;
+    padding-top: 10px;
     padding-bottom: 20px;
 }
 
 .questionText{
     font-size: 120%;
     font-weight: 600;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Inconsolata', monospace;
 }
 
 .controlContainer{
@@ -20,7 +20,7 @@
 }
 
 .radio {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Inconsolata', monospace;
     font-size: 120%;
     padding-bottom: 20px;
 }
@@ -29,7 +29,7 @@
   height: 40px;
   color: rgb(255, 255, 255);
   font-size: 120%;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Inconsolata', monospace;
   background-color: black;
   border-radius: 4%;
   border: 1px solid rgb(12, 12, 12);
@@ -39,7 +39,7 @@
 .answeredText{
     font-size: 120%;
     font-weight: 600;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Inconsolata', monospace;
 }
 
 .buttonContainer{

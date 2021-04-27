@@ -15,6 +15,7 @@ class App extends Component {
       questions: [],
       hasQuestions: false,
       questionIndex: 0,
+      score: 0,
     }
   }
 
@@ -26,6 +27,10 @@ class App extends Component {
     }else{
       return "Error";
     }
+  }
+
+  isLastQuestion = ()=>{
+    return ((this.state.questionIndex + 1) === this.state.questions.length);
   }
 
   nextCallBackFunction = ()=>{
@@ -71,10 +76,11 @@ class App extends Component {
     <div className="App">
       <div className="container">
         <div className="card">
+          <div className="headerContainer"><p className="header">a-lil-trivia-game</p></div>
           {!this.state.hasQuestions ? (
             <QuestionsForm categories={this.state.categoryList} parentCallBack={this.formCallBackFunction} />
           ):(
-            <Question questionData={this.state.questions[this.state.questionIndex]} parentCallBack={this.nextCallBackFunction}/>
+            <Question questionData={this.state.questions[this.state.questionIndex]} parentCallBack={this.nextCallBackFunction} isLast={this.isLastQuestion()} qNum={this.state.questions.length}/>
           )}
         </div>
       </div>

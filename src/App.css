@@ -11,11 +11,23 @@
 
 .card{
   position: fixed;
-  width: 600px;
+  width: max-content;
+  min-width: 600px;
+  padding: 20px;
   height: max-content;
   background-color: rgb(255, 255, 255);
   border: 1;
   border-radius: 2%;
   box-shadow: 0px 3px 6px #9e9e9e;
+}
+
+.header{
+  font-family: 'Inconsolata', monospace;
+  font-size: 150%;
+  font-weight: 800;
+}
+
+.headerContainer{
+  text-align: center;
 }
 
