@@ -42,6 +42,11 @@ export class QuestionsForm extends Component {
                             <option value="boolean">True/False</option>
                         </Form.Control>
                     </Form.Group>
+                    <Form.Group className={styles.formGroup}>
+                        <Form.Label className={styles.formLabel}>No. of teams :</Form.Label>
+                        <Form.Control className={styles.formControl} name="numOfTeams"/>
+                        <Form.Text className={styles.formHint} muted>Enter 1 for single player , default: 1</Form.Text>
+                    </Form.Group>
                     <div className={styles.buttonContainer}>
                         <Button type="submit" className={styles.button}>
                         Let's Play!

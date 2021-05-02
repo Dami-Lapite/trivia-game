@@ -13,6 +13,7 @@ export class Question extends Component {
             isCorrect: false,
             score: 0,
             gameOver: false,
+            winner: null,
         }
     }
 
@@ -46,15 +47,12 @@ export class Question extends Component {
                 this.setState({isAnswered: true});
             }
         }
+        this.props.setShow();
     }
 
     handleNext = ()=>{
         this.setState({isAnswered: false, isCorrect: false, answers: []});
-        if(this.props.isLast){
-            this.setState({gameOver: true});
-        }else{
-            this.props.parentCallBack();
-        }
+        this.props.parentCallBack();
     }
 
     handleNewGame = ()=>{
@@ -64,51 +62,45 @@ export class Question extends Component {
 
     render() {
         return (
-            <div>{this.state.gameOver ?
+            <div>{this.state.isAnswered ? <div className={styles.questionTextContainer}>{
+                this.state.isCorrect ? <p className={styles.answeredText} >That's Correct !!</p> 
+                : <p className={styles.answeredText}>That's Incorrect ! The correct answer is {this.decodeHTMLEntities(this.props.questionData.correct_answer)}</p>}
+                <Button type="button" className={styles.button} onClick={this.handleNext}>Next Question</Button>
+            </div>:
+            <Form className={styles.questionContainer} onSubmit={this.handleSubmit}>
                 <div className={styles.questionTextContainer}>
-                    <p className={styles.answeredText}>You answered {this.state.score} out of {this.props.qNum} questions correctly !</p>
-                    <Button type="button" className={styles.button} onClick={this.handleNewGame}>New Game</Button>
+                    <p className={styles.questionText}>{this.decodeHTMLEntities(this.props.questionData.question)}</p> 
                 </div>
-                :<div>{this.state.isAnswered ? <div className={styles.questionTextContainer}>{
-                    this.state.isCorrect ? <p className={styles.answeredText} >That's Correct !!</p> 
-                    : <p className={styles.answeredText}>That's Incorrect ! The correct answer is {this.decodeHTMLEntities(this.props.questionData.correct_answer)}</p>}
-                    <Button type="button" className={styles.button} onClick={this.handleNext}>Next Question</Button>
-                </div>:
-                <Form className={styles.questionContainer} onSubmit={this.handleSubmit}>
-                    <div className={styles.questionTextContainer}>
-                        <p className={styles.questionText}>{this.decodeHTMLEntities(this.props.questionData.question)}</p> 
-                    </div>
-                {this.props.questionData.type === "boolean" ? (
-                    <div className={styles.controlContainer}>
-                        <Form.Check
-                            type="radio"
-                            label="True"
-                            name="selectAnswer"
-                            value="True"
-                            className={styles.radio}
-                            />
-                            <Form.Check
-                            type="radio"
-                            label="False"
-                            name="selectAnswer"
-                            value="False"
-                            className={styles.radio}
-                            />
-                    </div>
-                ):<div>
-                    {this.getAnswers().map((answer) => 
+            {this.props.questionData.type === "boolean" ? (
+                <div className={styles.controlContainer}>
                     <Form.Check
-                            key={answer}
-                            type="radio"
-                            label={answer}
-                            name="selectAnswer"
-                            value={answer}
-                            className={styles.radio}
-                            />)}
-                    </div>}
-                    <div className={styles.buttonContainer}><Button type="submit" className={styles.button}>Submit Answer</Button></div>
-                </Form>
-                }</div>
+                        type="radio"
+                        label="True"
+                        name="selectAnswer"
+                        value="True"
+                        className={styles.radio}
+                        />
+                        <Form.Check
+                        type="radio"
+                        label="False"
+                        name="selectAnswer"
+                        value="False"
+                        className={styles.radio}
+                        />
+                </div>
+            ):<div>
+                {this.getAnswers().map((answer) => 
+                <Form.Check
+                        key={answer}
+                        type="radio"
+                        label={answer}
+                        name="selectAnswer"
+                        value={answer}
+                        className={styles.radio}
+                        />)}
+                </div>}
+                <div className={styles.buttonContainer}><Button type="submit" className={styles.button}>Submit Answer</Button></div>
+            </Form>
             }</div>
         )
     }
