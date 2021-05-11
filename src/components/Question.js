@@ -46,8 +46,8 @@ export class Question extends Component {
             }else{
                 this.setState({isAnswered: true});
             }
+            this.props.setShow();
         }
-        this.props.setShow();
     }
 
     handleNext = ()=>{
@@ -63,13 +63,13 @@ export class Question extends Component {
     render() {
         return (
             <div>{this.state.isAnswered ? <div className={styles.questionTextContainer}>{
-                this.state.isCorrect ? <p className={styles.answeredText} >That's Correct !!</p> 
-                : <p className={styles.answeredText}>That's Incorrect ! The correct answer is {this.decodeHTMLEntities(this.props.questionData.correct_answer)}</p>}
-                <Button type="button" className={styles.button} onClick={this.handleNext}>Next Question</Button>
+                this.state.isCorrect ? <p className="gameText" >That's Correct !!</p> 
+                : <p className="gameText">That's Incorrect ! The correct answer is {this.decodeHTMLEntities(this.props.questionData.correct_answer)}</p>}
+                <Button type="button" className="button" onClick={this.handleNext}>Next Question</Button>
             </div>:
             <Form className={styles.questionContainer} onSubmit={this.handleSubmit}>
                 <div className={styles.questionTextContainer}>
-                    <p className={styles.questionText}>{this.decodeHTMLEntities(this.props.questionData.question)}</p> 
+                    <p className="gameText">{this.decodeHTMLEntities(this.props.questionData.question)}</p> 
                 </div>
             {this.props.questionData.type === "boolean" ? (
                 <div className={styles.controlContainer}>
@@ -99,7 +99,7 @@ export class Question extends Component {
                         className={styles.radio}
                         />)}
                 </div>}
-                <div className={styles.buttonContainer}><Button type="submit" className={styles.button}>Submit Answer</Button></div>
+                <div className="buttonContainer"><Button type="submit" className="button">Submit Answer</Button></div>
             </Form>
             }</div>
         )

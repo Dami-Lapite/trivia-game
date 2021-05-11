@@ -8,30 +8,31 @@
     display: inline-block;
     font-size: 120%;
     font-weight: 600;
+    color: #532945;
     font-family: 'Inconsolata', monospace;
     padding-right: 20px;
 }
 
 .addButton{
     border: 1;
-    border-color: black;
+    border-color: #4A2545;
     border-radius: 20%;
     position: absolute;
     right: 0%;
     top: 10%;
     width: 30px;
     height: 30px;
-    background-color: rgb(0, 0, 0);
+    background-color: #4A2545;
 }
 
 .add{
     position: absolute;
     top: 5%;
     left: 5%;
-    color: rgb(245, 245, 245);
+    color: #F1E3E4;
     font-size: 100%;
 }
 
 .add:hover{
-    color: rgb(157, 247, 161);
+    color: #A288A6;
 }

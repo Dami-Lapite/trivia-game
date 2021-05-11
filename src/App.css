@@ -1,5 +1,5 @@
 .App{
-  background-color: rgb(235, 235, 235);
+  background-color: #BB9BB0;
 }
 .container {
   display: flex;
@@ -16,16 +16,18 @@
   max-width: 1000px;
   padding: 20px;
   height: max-content;
-  background-color: rgb(255, 255, 255);
+  background-color: #F1E3E4;
   border: 1;
-  border-radius: 2%;
-  box-shadow: 0px 3px 6px #9e9e9e;
+  border-radius: 0 2%;
+  border-color: #A288A6;
+  box-shadow: 0px 5px 10px #A288A6;
 }
 
 .header{
   font-family: 'Inconsolata', monospace;
   font-size: 150%;
   font-weight: 800;
+  color: #532945;
 }
 
 .headerContainer{
@@ -34,29 +36,39 @@
 
 .button{
   height: 40px;
-  color: rgb(255, 255, 255);
+  color: #F1E3E4;
   font-size: 120%;
   font-family: 'Inconsolata', monospace;
-  background-color: black;
+  background-color: #4A2545;
   border-radius: 4%;
-  border: 1px solid rgb(12, 12, 12);
-  box-shadow: 0px 3px 6px #9e9e9e;
+  border: 1px solid #4A2545;
+  box-shadow: 0px 3px 6px #382b36;
+}
+
+.button:hover{
+    color: #A288A6;
 }
 
 .gameText{
   font-size: 120%;
   font-weight: 600;
   font-family: 'Inconsolata', monospace;
+  color: #532945;
 }
 
 .teamText{
   font-size: 120%;
   font-family: 'Inconsolata', monospace;
   padding-bottom: 10px;
+  color: #532945;
 }
 
 .gameTextContainer{
     text-align: center;
     padding-top: 10px;
     padding-bottom: 20px;
+}
+
+.buttonContainer{
+    text-align: center;
 }
