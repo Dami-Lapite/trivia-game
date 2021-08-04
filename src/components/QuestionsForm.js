@@ -47,6 +47,7 @@ export class QuestionsForm extends Component {
                         <Form.Control className={styles.formControl} name="numOfTeams"/>
                         <Form.Text className={styles.formHint} muted>Enter 1 for single player , default: 1</Form.Text>
                     </Form.Group>
+                    <Form.Text className={styles.formHint} muted>Not all parameter combinations are available.</Form.Text>
                     <div className="buttonContainer">
                         <Button type="submit" className="button">
                         Let's Play!

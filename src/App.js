@@ -23,6 +23,7 @@ class App extends Component {
       addedScore: false,
       showScores: false,
       gameOver: false,
+      noQuestions: false,
     }
   }
 
@@ -68,7 +69,7 @@ class App extends Component {
   }
 
   newGame = ()=>{
-    this.setState({hasQuestions: false, questionIndex: 0, questions:[], showScores: false, gameOver: false});
+    this.setState({hasQuestions: false, questionIndex: 0, questions:[], showScores: false, gameOver: false, noQuestions: false});
   }
 
   nextCallBackFunction = ()=>{
@@ -95,9 +96,18 @@ class App extends Component {
       .then(data =>{
         this.setState({
           questions: data.results,
-          hasQuestions: true,
         });
+        if (data.results.length > 0){
+          this.setState({
+            hasQuestions: true,
+          })
+        }else{
+          this.setState({
+            noQuestions: true,
+          })
+        }
       })
+    
   }
 
   componentDidMount(){
@@ -124,7 +134,14 @@ class App extends Component {
       <div className="container">
         <div className="card">
           <div className="headerContainer"><p className="header">a-lil-trivia-game</p></div>
-          {!this.state.hasQuestions ? (
+          {this.state.noQuestions ? (
+            <div className="gameTextContainer">
+              <p className="gameText">No (nor not enough) questions for that parameter combination. 
+                Try changing the question type or difficulty</p>
+              <Button type="button" className="button" onClick={this.newGame}>New Game</Button>
+            </div>
+          ):(<div>
+            {!this.state.hasQuestions ? (
             <QuestionsForm categories={this.state.categoryList} parentCallBack={this.formCallBackFunction} />
           ):(
             <div>
@@ -142,12 +159,13 @@ class App extends Component {
               </div>}
             </div>
           )}
+          </div>)}
         </div>
       </div>
       <div className="footer">
-          <p class="footerText">
-          <span><a class="fab fa-github" href="https://github.com/Dami-Lapite/trivia-game"></a></span>&emsp;
-          <span><a class="fas fa-external-link-alt project-icon"
+          <p className="footerText">
+          <span><a className="fab fa-github" href="https://github.com/Dami-Lapite/trivia-game"></a></span>&emsp;
+          <span><a className="fas fa-external-link-alt project-icon"
                                     href="https://www.damilapite.com/"></a></span>
           &emsp;Designed and Developed by Dami Lapite - 2021</p>
       </div>
