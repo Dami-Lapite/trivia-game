@@ -144,6 +144,13 @@ class App extends Component {
           )}
         </div>
       </div>
+      <div className="footer">
+          <p class="footerText">
+          <span><a class="fab fa-github" href="https://github.com/Dami-Lapite/trivia-game"></a></span>&emsp;
+          <span><a class="fas fa-external-link-alt project-icon"
+                                    href="https://www.damilapite.com/"></a></span>
+          &emsp;Designed and Developed by Dami Lapite - 2021</p>
+      </div>
     </div>
     );
   }
