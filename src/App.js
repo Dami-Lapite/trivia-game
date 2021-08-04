@@ -6,7 +6,7 @@ import getURL from './functions/getURL';
 import Button from 'react-bootstrap/Button';
 import './App.css';
 
-class App extends Component { 
+class App extends Component {
 
   constructor(props) {
     super(props);
@@ -107,7 +107,7 @@ class App extends Component {
           })
         }
       })
-    
+
   }
 
   componentDidMount(){
@@ -136,7 +136,7 @@ class App extends Component {
           <div className="headerContainer"><p className="header">a-lil-trivia-game</p></div>
           {this.state.noQuestions ? (
             <div className="gameTextContainer">
-              <p className="gameText">No (nor not enough) questions for that parameter combination. 
+              <p className="gameText">No (nor not enough) questions for that parameter combination.
                 Try changing the question type or difficulty</p>
               <Button type="button" className="button" onClick={this.newGame}>New Game</Button>
             </div>
@@ -164,11 +164,12 @@ class App extends Component {
       </div>
       <div className="footer">
           <p className="footerText">
-          <span><a className="fab fa-github" href="https://github.com/Dami-Lapite/trivia-game"></a></span>&emsp;
-          <span><a className="fas fa-external-link-alt project-icon"
-                                    href="https://www.damilapite.com/"></a></span>
+          <span><a className="fab fa-github"
+          style={{display: "table-cell"}} href="https://github.com/Dami-Lapite/anime-quotes" rel="noreferrer" target="_blank">&emsp;</a></span>&emsp;
+          <span><a className="fas fa-external-link-alt"
+          style={{display: "table-cell"}} href="https://www.damilapite.com/" rel="noreferrer" target="_blank">&emsp;</a></span>
           &emsp;Designed and Developed by Dami Lapite - 2021</p>
-      </div>
+        </div>
     </div>
     );
   }
