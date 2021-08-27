@@ -1,21 +1,28 @@
 .questionContainer{
-    padding: 10px 30px;
+    padding: 1em;
 }
 
 .questionTextContainer{
     text-align: center;
-    padding-top: 10px;
-    padding-bottom: 20px;
+    padding: 1em;
 }
 
-.controlContainer{
-    padding-top: 10px;
-    padding-bottom: 10px;
+.correct{
+    background-color: #7aaf3c;
+    border-radius: 0.5em;
+    width: 100%;
+    padding: 0.8em 0em;
+    text-align: center;
+    margin: 0.5em auto;
+    color: #ffffff;
 }
 
-.radio {
-    font-family: 'Inconsolata', monospace;
-    font-size: 120%;
-    padding-bottom: 20px;
-    color: #532945;
+.incorrect{
+    background-color: #f73c3d;
+    border-radius: 0.5em;
+    width: 100%;
+    padding: 0.8em 0em;
+    text-align: center;
+    margin: 0.5em auto;
+    color: #ffffff;
 }

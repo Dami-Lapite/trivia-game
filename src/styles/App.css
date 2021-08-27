@@ -1,0 +1,277 @@
+*{
+  font-family: 'Urbanist', sans-serif;
+}
+
+.App{
+  background-color: #ffffff;
+  height: 100vh;
+}
+@media screen and (max-width: 1680px) {
+
+			.App {
+				font-size: 15pt;
+			}
+
+		}
+
+		@media screen and (max-width: 1280px) {
+
+			.App {
+				font-size: 14pt;
+			}
+
+		}
+
+		@media screen and (max-width: 736px) {
+
+			.App {
+				font-size: 12pt;
+			}
+
+		}
+
+		@media screen and (max-width: 360px) {
+
+			.App {
+				font-size: 11pt;
+			}
+
+		}
+.container {
+  padding: 1em 1em 0em 1em;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -moz-align-items: center;
+  -webkit-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+}
+
+.card{
+  width: 48em;
+  max-width: 100%;
+  padding: 1em 0em 0em 0em;
+  height: max-content;
+  margin: 0 auto;
+}
+@media screen and (max-width: 1280px) {
+
+			.card {
+				padding: 1em 1em 0em 1em;
+        min-width: none;
+				max-width: calc(100% - 6em);
+			}
+
+		}
+
+		@media screen and (max-width: 980px) {
+      .container{
+        display: block;
+      }
+
+			.card {
+        display: block;
+				padding: 1em 1em 0.5em 1em;
+        min-width: none;
+				max-width: calc(100% - 8em);
+			}
+
+      .button-container{
+        display: block;
+      }
+
+		}
+
+		@media screen and (max-width: 736px) {
+      .container{
+        display: block;
+      }
+
+			.card {
+        display: block;
+				padding: 1em 0;
+        min-width: none;
+				max-width: 100%;
+			}
+
+      .button-container{
+        display: block;
+      }
+		}
+
+		@media screen and (max-width: 360px) {
+      .container{
+        display: block;
+      }
+
+			.card {
+        display: block;
+				padding: 1em 0;
+        min-width: none;
+				max-width: 100%;
+			}
+      .button-container{
+        display: block;
+      }
+		}
+
+.headerContainer{
+  text-align: center;
+  color: #4b4b4b;
+}
+
+.button{
+  color: #ffffff;
+  font-size: 1.1em;
+  background-color: #3d3d3d;
+  border-radius: 0.5em;
+  padding: 0.5em 3em;
+  border: 0;
+}
+
+.button:hover{
+  box-shadow: 0 0 0.5em rgb(125, 126, 126);
+}
+
+.buttonContainer{
+  margin: 1.5em auto 0.5em auto;
+  text-align: center;
+}
+
+.gameText{
+  font-size: 1em;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.teamText{
+  font-size: 1em;
+  padding-bottom: 1em;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.gameTextContainer{
+    text-align: center;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.toggleItem{
+  display: inline-block;
+  flex-grow: 1;
+  text-align: center;
+  border: 0.07em solid #777777;
+  border-radius: 0.25em;
+  margin: 0em 0.2em;
+  padding: 0.5em;
+}
+
+.toggleItem p {
+  margin: auto;
+}
+
+.toggleItem:hover{
+  color: #ffffff;
+}
+
+.easy:hover{
+  background-color: #7aaf3c;
+  box-shadow: 0 0 0.5em rgba(122, 175, 60) ;
+  border-color: #7aaf3c;
+}
+
+.medium:hover{
+  background-color: #fdbb12;
+  box-shadow: 0 0 0.5em rgba(253, 187, 18) ;
+  border-color: #fdbb12;
+}
+
+.hard:hover{
+  background-color: #f73c3d;
+  box-shadow: 0 0 0.5em rgba(247, 60, 61) ;
+  border-color: #f73c3d;
+}
+
+.standard:hover{
+  background-color: #78adc5;
+  box-shadow: 0 0 0.5em rgba(120, 173, 197);
+  border-color: #78adc5;
+}
+
+.option{
+    background-color: #ebebeb;
+    border-radius: 0.5em;
+    width: 100%;
+    padding: 0.02em;
+    text-align: center;
+    margin: 0.4em auto;
+    font-size: 1em;
+    color: #4b4b4b;
+}
+
+.option:hover{
+  background-color: #c9c9c9;
+}
+
+.optionActive, .optionActive:hover{
+  background-color: #f7f2da;
+}
+
+.active{
+  background-color: #3d3d3d;
+  border-color: #3d3d3d;
+  color: #ffffff;
+}
+
+.scoreContainer{
+  margin: 0 auto;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.team{
+  padding: 0.01em 1em;
+  width: 5em;
+  text-align: center;
+  margin: 0.8em;
+  background-color: #ebebeb;
+  color: #4b4b4b;
+  font-weight: 600;
+  border-radius: 0.25em;
+  display: inline-block;
+}
+
+/*Footer*/
+.footer{
+  padding: 0em 1em;
+  display: block;
+	width: fit-content;
+	margin: 0 auto;
+}
+.footerText{
+	text-align: center;
+	font-size: 100%;
+	color: #777777;
+	font-weight: 600;
+}
+
+
+a:link{
+  color: #777777;
+  text-decoration: none;
+}
+a:visited{
+  color: #777777;
+  text-decoration: none;
+}
+a:hover{
+  color: #3d87c4;
+}
+a:active{
+  color: #3d87c4;
+}
