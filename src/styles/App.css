@@ -227,10 +227,16 @@
 
 .scoreContainer{
   margin: 0 auto;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: -ms-flex;
   display: flex;
   width: 100%;
   flex-wrap: wrap;
-  align-items: center;
+  -moz-align-items: center;
+-webkit-align-items: center;
+-ms-align-items: center;
+align-items: center;
   justify-content: center;
 }
 

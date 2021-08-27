@@ -51,6 +51,9 @@
 }
 
 .toggleBlock{
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: -ms-flex;
   display: flex;
   flex-direction: row;
   max-height: 3em;
