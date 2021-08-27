@@ -38,7 +38,7 @@
 
 		}
 .container {
-  padding: 1em 1em 0em 1em;
+  padding: 0.4em 1em 0em 1em;
   display: -moz-flex;
   display: -webkit-flex;
   display: -ms-flex;
@@ -52,7 +52,7 @@
 .card{
   width: 48em;
   max-width: 100%;
-  padding: 1em 0em 0em 0em;
+  padding: 0.5em 0em 0em 0em;
   height: max-content;
   margin: 0 auto;
 }
@@ -254,10 +254,11 @@ align-items: center;
 
 /*Footer*/
 .footer{
-  padding: 0em 1em;
+  padding: 0em 1em 1em 1em;
   display: block;
 	width: fit-content;
-	margin: 0 auto;
+	margin: 0em auto;
+  text-align: center;
 }
 .footerText{
 	text-align: center;
