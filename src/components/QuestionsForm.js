@@ -2,12 +2,65 @@ import React, { Component } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import styles from '../styles/questionsForm.module.css';
+import '../styles/App.css'
+import NumOfQuestions from './NumericInput';
+import NumOfTeams from './NumericInput2';
 
 export class QuestionsForm extends Component {
 
+    constructor(props){
+        super(props);
+        this.state  = {
+            difficulty: "",
+            questionType: "",
+        }
+    }
+
+    difficultyToggle = (setting) =>{
+        this.setState({difficulty: setting});
+        let obj = document.getElementById(setting);
+        obj.className = obj.className.replace(" active", "");
+        obj.className += " active";
+        let arr = ["easy","medium","hard"];
+        arr.forEach((item) =>{
+            if(item !== setting){
+                let temp = document.getElementById(item);
+                temp.className = temp.className.replace(" active", "");
+            }
+        })
+    }
+
+    questionTypeToggle = (setting)=>{
+        this.setState({questionType: setting});
+        let obj = document.getElementById(setting);
+        obj.className = obj.className.replace(" active", "");
+        obj.className += " active";
+        let arr = ["multiple","boolean"];
+        arr.forEach((item) =>{
+            if(item !== setting){
+                let temp = document.getElementById(item);
+                temp.className = temp.className.replace(" active", "");
+            }
+        })
+    }
+
     handleSubmit = (event) =>{
         event.preventDefault();
-        this.props.parentCallBack(event.target.elements);
+        let numOfTeams= event.target.elements.NumOfTeams.value;
+        if(numOfTeams === "" || isNaN(parseInt(numOfTeams))){
+            numOfTeams = 1;
+        }
+        let numOfQuestions= event.target.elements.NumOfQuestions.value;
+        if(numOfQuestions === "" || isNaN(parseInt(numOfQuestions))){
+            numOfQuestions = 5;
+        }
+        if(numOfTeams <= 10 && numOfQuestions <= 50){
+            let categoryTemp = event.target.elements.category.value;
+            let difficultyTemp = this.state.difficulty;
+            let qType = this.state.questionType;
+            let object = {numOfTeams: numOfTeams.toString(), numOfQuestions: numOfQuestions.toString(), category: categoryTemp, difficulty: difficultyTemp, questionType: qType};
+            this.props.parentCallBack(object);
+        }
     }
 
     render() {
@@ -15,9 +68,9 @@ export class QuestionsForm extends Component {
             <div>
                 <Form className={styles.form} onSubmit={this.handleSubmit}>
                     <Form.Group className={styles.formGroup}>
-                        <Form.Label className={styles.formLabel}>No. of questions :</Form.Label>
-                        <Form.Control className={styles.formControl} name="NumOfQuestions"/>
-                        <Form.Text className={styles.formHint} muted>minimum : 1, maximum : 50, default: 10</Form.Text>
+                        <Form.Label className={styles.formLabel}>Number of teams :</Form.Label>
+                        <NumOfTeams />
+                        <Form.Text className={styles.formHint} muted>max: 10, default: 1</Form.Text>
                     </Form.Group>
                     <Form.Group className={styles.formGroup}>
                         <Form.Label className={styles.formLabel}>Category</Form.Label>
@@ -27,27 +80,27 @@ export class QuestionsForm extends Component {
                     </Form.Group>
                     <Form.Group className={styles.formGroup}>
                         <Form.Label className={styles.formLabel}>Difficulty</Form.Label>
-                        <Form.Control as="select" className={styles.formDropdown} name="difficulty">
-                            <option value="0">Any Difficulty</option>
-                            <option value="easy">Easy</option>
-                            <option value="medium">Medium</option>
-                            <option value="hard">Hard</option>
-                        </Form.Control>
+                        <div className={styles.toggleBlock}>
+                            <div className="toggleItem easy" id="easy" onClick={() => this.difficultyToggle("easy")}><p>Easy</p></div>
+                            <div className="toggleItem medium" id="medium" onClick={() => this.difficultyToggle("medium")}><p>Medium</p></div>
+                            <div className="toggleItem hard" id="hard" onClick={() => this.difficultyToggle("hard")}><p>Hard</p></div>
+                        </div>
+                        <Form.Text className={styles.formHint} muted>default: any difficulty</Form.Text>
                     </Form.Group>
                     <Form.Group className={styles.formGroup}>
                         <Form.Label className={styles.formLabel}>Question Type</Form.Label>
-                        <Form.Control as="select" className={styles.formDropdown} name="questionType">
-                            <option value="0">Any Type</option>
-                            <option value="multiple">Multiple Choice</option>
-                            <option value="boolean">True/False</option>
-                        </Form.Control>
+                        <div className={styles.toggleBlock}>
+                            <div className="toggleItem standard" id="multiple" onClick={() => this.questionTypeToggle("multiple")}><p>Multiple Choice</p></div>
+                            <div className="toggleItem standard" id="boolean" onClick={() => this.questionTypeToggle("boolean")}><p>True/False</p></div>
+                        </div>
+                        <Form.Text className={styles.formHint} muted>default: any type</Form.Text>
                     </Form.Group>
                     <Form.Group className={styles.formGroup}>
-                        <Form.Label className={styles.formLabel}>No. of teams :</Form.Label>
-                        <Form.Control className={styles.formControl} name="numOfTeams"/>
-                        <Form.Text className={styles.formHint} muted>Enter 1 for single player , default: 1</Form.Text>
+                        <Form.Label className={styles.formLabel}>Questions per Team :</Form.Label>
+                        <NumOfQuestions />
+                        <Form.Text className={styles.formHint} muted>max: 50, default: 5</Form.Text>
                     </Form.Group>
-                    <Form.Text className={styles.formHint} muted>Not all parameter combinations are available.</Form.Text>
+                    <Form.Text className={styles.formHint} muted><i className="fas fa-exclamation-circle"></i>&emsp;Not all game parameter combinations are available.</Form.Text>
                     <div className="buttonContainer">
                         <Button type="submit" className="button">
                         Let's Play!

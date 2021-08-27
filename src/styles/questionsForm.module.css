@@ -1,41 +1,57 @@
-.form{
-  padding: 10px 30px;
-}
-
 .formGroup{
-  padding-bottom: 30px;
+  padding-bottom: 1em;
+  display: block;
 }
 
 .formLabel{
-  font-size: 120%;
-  font-family: 'Inconsolata', monospace;
-  color: #532945;
-  padding-right: 8px;
+  font-size: 0.9em;
+  padding-bottom: 0.1em;
+  color: #424242;
+  display: block;
+}
+.inlineLabel{
+  display: inline;
 }
 
 .formHint{
   display: block;
-  padding-top: 4px;
+  font-size: 0.85em;
+  padding-top: 0.1em;
   color: rgb(104, 104, 104);
-  font-family: 'Inconsolata', monospace;
 }
 
 .formControl{
   border: 0;
-  border-bottom: 2px solid #4A2545;
-  background-color: #F1E3E4;
-  color: #532945;
+  border-radius: 2em;
+  background-color: #f0f0f0;
+  padding: 0.5em;
+  color: #424242;
+  font-size: 1em;
   outline: none;
-  height: 40px;
 }
 
 .formDropdown{
-  width: 350px;
-  height: 30px;
-  border: 2px solid #4A2545;
-  background-color: #F1E3E4;
-  color: #532945;
-  border-radius: 2%;
-  font-size: 100%;
-  font-family: 'Inconsolata', monospace;
+  width: 100%;
+  padding: 0.4em;
+  border: 0em;
+  background-color: #ffffff;
+  border: 0.07em solid #777777;
+  color: #424242;
+  border-radius: 0.25em;
+  font-size: 1em;
+}
+
+.formDropdown option{
+  background-color: #ffffff;
+}
+
+.formDropdown:focus {
+  border-color: #3d87c4 !important;
+  box-shadow: 0 0 5px rgba(61, 135, 196) !important;
+}
+
+.toggleBlock{
+  display: flex;
+  flex-direction: row;
+  max-height: 3em;
 }
