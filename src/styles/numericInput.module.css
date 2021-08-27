@@ -52,7 +52,9 @@
 }
 
 .error{
-    font-size: 0.7em;
+    display: inline;
+    font-size: 0.9em;
+    padding: 0em 1em;
     color: #f73c3d;
 }
 
@@ -60,12 +62,12 @@
     .minusButton{
         border-width: 0.05em;
         height: 2.95em;
-    } 
+    }
     .plusButton{
         border-width: 0.05em;
         height: 2.95em;
-    }  
+    }
     .input{
         border-width: 0.05em 0em;
-    }    
+    }
 }
