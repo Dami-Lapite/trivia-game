@@ -57,7 +57,7 @@ export default class NumOfQuestions extends Component {
         return (
             <div className={styles.InputContainer}>
                 <button className={styles.minusButton} onClick={this.subtract}><i className="fas fa-minus"></i></button>
-                <input className={styles.input} name="NumOfQuestions" id="NumOfQuestions" onChange={this.checkInput} autocomplete="off"/>
+                <input className={styles.input} name="NumOfQuestions" id="NumOfQuestions" onChange={this.checkInput} autoComplete="off"/>
                 <button className={styles.plusButton} onClick={this.add}><i className="fas fa-plus"></i></button>
                 {this.state.invalid && <p className={styles.error}>Invalid Input</p>}
             </div>
