@@ -62,12 +62,14 @@
     .minusButton{
         border-width: 0.05em;
         height: 2.95em;
+        margin-right: 0.1em;
     }
     .plusButton{
         border-width: 0.05em;
         height: 2.95em;
+        margin-left: 0.1em;
     }
     .input{
-        border-width: 0.05em 0em;
+        border-width: 0.05em;
     }
 }
