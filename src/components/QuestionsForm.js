@@ -13,6 +13,10 @@ export class QuestionsForm extends Component {
         this.state  = {
             difficulty: "",
             questionType: "",
+            getNames: false,
+            dataObject: {},
+            teamNames:[1],
+            timer: false,
         }
     }
 
@@ -21,7 +25,7 @@ export class QuestionsForm extends Component {
         let obj = document.getElementById(setting);
         obj.className = obj.className.replace(" active", "");
         obj.className += " active";
-        let arr = ["easy","medium","hard"];
+        let arr = ["easy","medium","hard","any-difficulty"];
         arr.forEach((item) =>{
             if(item !== setting){
                 let temp = document.getElementById(item);
@@ -35,7 +39,25 @@ export class QuestionsForm extends Component {
         let obj = document.getElementById(setting);
         obj.className = obj.className.replace(" active", "");
         obj.className += " active";
-        let arr = ["multiple","boolean"];
+        let arr = ["multiple","boolean","any-type"];
+        arr.forEach((item) =>{
+            if(item !== setting){
+                let temp = document.getElementById(item);
+                temp.className = temp.className.replace(" active", "");
+            }
+        })
+    }
+
+    timerToggle = (setting)=>{
+        if(setting === "on-switch"){
+            this.setState({timer: true});
+        }else{
+            this.setState({timer: false});
+        }
+        let obj = document.getElementById(setting);
+        obj.className = obj.className.replace(" active", "");
+        obj.className += " active";
+        let arr = ["on-switch","off-switch"];
         arr.forEach((item) =>{
             if(item !== setting){
                 let temp = document.getElementById(item);
@@ -57,16 +79,44 @@ export class QuestionsForm extends Component {
         if(numOfTeams <= 10 && numOfQuestions <= 50){
             let categoryTemp = event.target.elements.category.value;
             let difficultyTemp = this.state.difficulty;
+            if(difficultyTemp === "any-difficulty"){
+                difficultyTemp = "";
+            };
             let qType = this.state.questionType;
-            let object = {numOfTeams: numOfTeams.toString(), numOfQuestions: numOfQuestions.toString(), category: categoryTemp, difficulty: difficultyTemp, questionType: qType};
-            this.props.parentCallBack(object);
+            if(qType === "any-type"){
+                qType = "";
+            };
+            let timerTemp = this.state.timer;
+            let object = {numOfTeams: numOfTeams.toString(), numOfQuestions: numOfQuestions.toString(), 
+                category: categoryTemp, difficulty: difficultyTemp, questionType: qType, timer: timerTemp};
+            let teamNamesTemp = [];
+            for(let i = 1 ; i <= numOfTeams; i++){
+                teamNamesTemp.push(i);
+            }
+            this.setState({getNames: true, dataObject: object, teamNames: teamNamesTemp});
         }
+    }
+
+    finalSubmit = (event)=>{
+        event.preventDefault();
+        let object = this.state.dataObject;
+        let teamNamesTemp = [];
+        for(let i = 0 ; i < object.numOfTeams; i++){
+            let name = event.target.elements[i].value;
+            if (name !== ""){
+                teamNamesTemp.push(name);
+            }else{
+                teamNamesTemp.push("Team "+(i+1));
+            }
+        }
+        object.teamNames = teamNamesTemp;
+        this.props.parentCallBack(object);
     }
 
     render() {
         return (
-            <div>
-                <Form className={styles.form} onSubmit={this.handleSubmit}>
+            <div>{!this.state.getNames ? 
+                <Form onSubmit={this.handleSubmit}>
                     <Form.Group className={styles.formGroup}>
                         <Form.Label className={styles.formLabel}>Number of teams :</Form.Label>
                         <NumOfTeams />
@@ -84,21 +134,28 @@ export class QuestionsForm extends Component {
                             <div className="toggleItem easy" id="easy" onClick={() => this.difficultyToggle("easy")}><p>Easy</p></div>
                             <div className="toggleItem medium" id="medium" onClick={() => this.difficultyToggle("medium")}><p>Medium</p></div>
                             <div className="toggleItem hard" id="hard" onClick={() => this.difficultyToggle("hard")}><p>Hard</p></div>
+                            <div className="toggleItem standard active" id="any-difficulty" onClick={() => this.difficultyToggle("any-difficulty")}><p>Any</p></div>
                         </div>
-                        <Form.Text className={styles.formHint} muted>default: any difficulty</Form.Text>
                     </Form.Group>
                     <Form.Group className={styles.formGroup}>
                         <Form.Label className={styles.formLabel}>Question Type</Form.Label>
                         <div className={styles.toggleBlock}>
                             <div className="toggleItem standard" id="multiple" onClick={() => this.questionTypeToggle("multiple")}><p>Multiple Choice</p></div>
                             <div className="toggleItem standard" id="boolean" onClick={() => this.questionTypeToggle("boolean")}><p>True/False</p></div>
+                            <div className="toggleItem standard active" id="any-type" onClick={() => this.questionTypeToggle("any-type")}><p>Any</p></div>
                         </div>
-                        <Form.Text className={styles.formHint} muted>default: any type</Form.Text>
                     </Form.Group>
                     <Form.Group className={styles.formGroup}>
                         <Form.Label className={styles.formLabel}>Questions per Team :</Form.Label>
                         <NumOfQuestions />
                         <Form.Text className={styles.formHint} muted>max: 50, default: 5</Form.Text>
+                    </Form.Group>
+                    <Form.Group className={styles.formGroup}>
+                        <Form.Label className={styles.inlineFormLabel}>Timer (30 seconds) :</Form.Label>
+                        <div className={styles.switchBlock}>
+                            <div className="switchItem left" id="on-switch" onClick={() => this.timerToggle("on-switch")}><p>ON</p></div>
+                            <div className="switchItem right active" id="off-switch" onClick={() => this.timerToggle("off-switch")}><p>OFF</p></div>
+                        </div>
                     </Form.Group>
                     <Form.Text className={styles.formHint} muted><i className="fas fa-exclamation-circle"></i>&emsp;Not all game parameter combinations are available.</Form.Text>
                     <div className="buttonContainer">
@@ -106,7 +163,21 @@ export class QuestionsForm extends Component {
                         Let's Play!
                         </Button>
                     </div>
-                </Form>
+                </Form>:(
+                    <Form className={styles.nameForm} onSubmit={this.finalSubmit}>
+                        {this.state.teamNames.map((i) =>(
+                            <Form.Group key={i} className={styles.nameFormGroup}>
+                                <Form.Label className={styles.nameFormLabel}>Team {i} Name:</Form.Label>
+                                <input className={styles.nameInput} autoComplete="off" />
+                            </Form.Group>
+                        ))}
+                        <div className="buttonContainer">
+                            <Button type="submit" className="button">
+                                Start Game !
+                            </Button>
+                        </div>
+                    </Form>
+                )}
             </div>
         )
     }

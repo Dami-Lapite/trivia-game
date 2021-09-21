@@ -1,10 +1,11 @@
-.questionContainer{
-    padding: 1em;
-}
-
 .questionTextContainer{
     text-align: center;
     padding: 1em;
+}
+
+.questionTextContainer h3{
+    padding: 0;
+    margin: 0;
 }
 
 .correct{

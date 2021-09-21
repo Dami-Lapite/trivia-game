@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styles from '../styles/question.module.css';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import Timer from './Timer';
 import decodeHtmlEntities from '../functions/decodeHtmlEntities';
 
 export class Question extends Component {
@@ -26,12 +27,16 @@ export class Question extends Component {
         });
     }
 
+    checkIfCorrect = (answer)=>{
+        return(answer === decodeHtmlEntities(this.props.questionData.correct_answer));
+    }
+
     handleSubmit = (event) =>{
         event.preventDefault();
         let answer = this.state.answer;
         let tempScore = this.props.team.score;
         if( answer !== ""){
-            if(answer === decodeHtmlEntities(this.props.questionData.correct_answer)){
+            if(this.checkIfCorrect(answer)){
                 tempScore += 1;
                 this.setState({isAnswered: true, isCorrect: true});
             }else{
@@ -39,6 +44,22 @@ export class Question extends Component {
             }
             this.props.setShow(tempScore);
         }
+    }
+
+    timeCallBack = ()=>{
+        let answer = this.state.answer;
+        let tempScore = this.props.team.score;
+        if( answer !== ""){
+            if(this.checkIfCorrect(answer)){
+                tempScore += 1;
+                this.setState({isAnswered: true, isCorrect: true});
+            }else{
+                this.setState({isAnswered: true});
+            }
+        }else{
+            this.setState({answer:"No answer", isAnswered: true});
+        }
+        this.props.setShow(tempScore);
     }
 
     handleNext = ()=>{
@@ -70,16 +91,27 @@ export class Question extends Component {
             </div>:
             <Form className={styles.questionContainer} onSubmit={this.handleSubmit}>
                 <div className={styles.questionTextContainer}>
-                    <h3>Team {this.props.team.name}</h3>
+                    {this.props.timed && <Timer parentCallBack={this.timeCallBack}/>}
+                    <h3>Question for {this.props.team.name}</h3>
                     <p className="gameText">{decodeHtmlEntities(this.props.questionData.question)}</p> 
                 </div>
-                {this.props.answers.map((answer, i) => 
-                <div className="option" onClick={() => this.setAnswer(answer)} key={i}>
-                <p>{answer}</p>
+                {this.props.questionData.type === "boolean" ? <div>
+                    <div className="option" onClick={() => this.setAnswer("True")}>
+                    <p>True</p>
+                    </div>
+                    <div className="option" onClick={() => this.setAnswer("False")}>
+                    <p>False</p>
+                    </div>
+                </div>:(<div>
+                    {this.props.answers.map((answer, i) => 
+                    <div className="option" onClick={() => this.setAnswer(answer)} key={i}>
+                    <p>{answer}</p>
+                    </div>)}
                 </div>)}
                 <div className="buttonContainer"><Button type="submit" className="button">Submit Answer</Button></div>
             </Form>
-            }</div>
+            }
+            </div>
         )
     }
 }

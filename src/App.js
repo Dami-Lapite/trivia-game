@@ -26,6 +26,7 @@ class App extends Component {
       showScores: false,
       gameOver: false,
       noQuestions: false,
+      timed: false,
     }
   }
 
@@ -44,10 +45,10 @@ class App extends Component {
     let winners = "";
     for (const team of this.state.teams) {
       if(team.score === maxScore){
-        winners += team.name + " ,";
+        winners += team.name + " & ";
       }
     }
-    winners = winners.substring(0, winners.length - 1);
+    winners = winners.substring(0, winners.length - 2);
     return winners;
   }
 
@@ -66,7 +67,7 @@ class App extends Component {
 
   newGame = ()=>{
     this.setState({hasQuestions: false, questionIndex: 0, questions:[], showScores: false, gameOver: false, noQuestions: false
-    ,teams: [], teamIndex:0});
+    ,teams: [], teamIndex:0, timer: false});
   }
 
   setAnswers = (questionData)=>{
@@ -99,9 +100,11 @@ class App extends Component {
   formCallBackFunction = (options) =>{
     let tempArr = [];
     for (let i = 0; i < options.numOfTeams; i++) {
-      tempArr.push({"name":i+1, "score":0});
+      let name = options.teamNames[i];
+      tempArr.push({"name":name, "score":0});
     }
-    this.setState({teams: tempArr});
+    let timed = options.timer;
+    this.setState({teams: tempArr, timed: timed});
     let url = getURL(options)
     this.fetchQuestions(url)
       .then(data =>{
@@ -158,18 +161,18 @@ class App extends Component {
             <div>
             {this.state.gameOver ?
             <div className="gameTextContainer">
-              <h3>Team(s) {this.getWinner()} answered the most questions correctly !</h3>
+              <h3>{this.getWinner()} answered the most questions correctly !</h3>
               <div className="scoreContainer">{this.state.teams.map((team,i) => 
-              <div className="team" key={i}><p>Team {team.name} : {team.score}</p></div>)}</div>
+              <div className="team" key={i}><p>{team.name} : {team.score}</p></div>)}</div>
               <Button type="button" className="button" onClick={this.newGame}>New Game</Button>
             </div>
             :<div>
               <Question questionData={this.state.questions[this.state.questionIndex]} parentCallBack={this.nextCallBackFunction} 
               answers={this.setAnswers(this.state.questions[this.state.questionIndex])} setShow={this.setScoresCallBackFunction}
-              team={this.state.teams[this.state.teamIndex]}/>
+              team={this.state.teams[this.state.teamIndex]} timed={this.state.timed}/>
               {this.state.showScores && <div className="scoreContainer">
                 {this.state.teams.map((team,i) => 
-                <div className="team" key={i}><p>Team {team.name} : {team.score}</p></div>)}
+                <div className="team" key={i}><p>{team.name} : {team.score}</p></div>)}
               </div>}
               </div>}
             </div>

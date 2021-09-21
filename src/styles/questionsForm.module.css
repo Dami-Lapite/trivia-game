@@ -1,16 +1,13 @@
 .formGroup{
-  padding-bottom: 1em;
+  padding-bottom: 0.9em;
   display: block;
 }
 
 .formLabel{
   font-size: 0.9em;
   padding-bottom: 0.1em;
-  color: #424242;
+  color: #444444;
   display: block;
-}
-.inlineLabel{
-  display: inline;
 }
 
 .formHint{
@@ -25,7 +22,7 @@
   border-radius: 2em;
   background-color: #f0f0f0;
   padding: 0.5em;
-  color: #424242;
+  color: #444444;
   font-size: 1em;
   outline: none;
 }
@@ -36,7 +33,7 @@
   border: 0em;
   background-color: #ffffff;
   border: 0.07em solid #777777;
-  color: #424242;
+  color: #444444;
   border-radius: 0.25em;
   font-size: 1em;
 }
@@ -57,4 +54,48 @@
   display: flex;
   flex-direction: row;
   max-height: 3em;
+}
+
+.nameForm{
+  display: block;
+  width: fit-content;
+  margin: auto;
+}
+
+.nameFormGroup{
+  display: block;
+  padding: 1em 0;
+}
+
+.nameFormLabel{
+  font-size: 1em;
+  padding-right: 0.5em;
+  color: #444444;
+  display: inline-block;
+  width: 8em;
+}
+
+.nameInput{
+  display: inline-block;
+  max-width: 20em;
+  padding: 0.2em 0.5em;
+  border: 0.09em #444444 solid;
+  border-radius: 0.25em;
+}
+
+.nameInput:focus{
+  border: 0.1em #202020 solid;
+}
+
+.inlineFormLabel{
+  font-size: 0.9em;
+  padding-right: 0.5em;
+  color: #444444;
+  display: inline-block;
+}
+
+.switchBlock{
+  display: inline-block;
+  border: 0.07em solid #777777;
+  border-radius: 0.25em;
 }

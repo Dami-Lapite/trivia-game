@@ -4,7 +4,7 @@
 
 .App{
   background-color: #ffffff;
-  height: 100vh;
+  min-height: 100vh;
 }
 @media screen and (max-width: 1680px) {
 
@@ -38,7 +38,7 @@
 
 		}
 .container {
-  padding: 0.4em 1em 0em 1em;
+  padding: 0em 1em 0em 1em;
   display: -moz-flex;
   display: -webkit-flex;
   display: -ms-flex;
@@ -52,7 +52,7 @@
 .card{
   width: 48em;
   max-width: 100%;
-  padding: 0.5em 0em 0em 0em;
+  padding: 0em;
   height: max-content;
   margin: 0 auto;
 }
@@ -172,29 +172,29 @@
   margin: auto;
 }
 
-.toggleItem:hover{
+.toggleItem:not(.active):hover{
   color: #ffffff;
 }
 
-.easy:hover{
+.easy:not(.active):hover{
   background-color: #7aaf3c;
   box-shadow: 0 0 0.5em rgba(122, 175, 60) ;
   border-color: #7aaf3c;
 }
 
-.medium:hover{
+.medium:not(.active):hover{
   background-color: #fdbb12;
   box-shadow: 0 0 0.5em rgba(253, 187, 18) ;
   border-color: #fdbb12;
 }
 
-.hard:hover{
+.hard:not(.active):hover{
   background-color: #f73c3d;
   box-shadow: 0 0 0.5em rgba(247, 60, 61) ;
   border-color: #f73c3d;
 }
 
-.standard:hover{
+.standard:not(.active):hover{
   background-color: #78adc5;
   box-shadow: 0 0 0.5em rgba(120, 173, 197);
   border-color: #78adc5;
@@ -225,6 +225,33 @@
   color: #ffffff;
 }
 
+.switchItem{
+  display: inline-block;
+  padding: 0.3em 1em;
+}
+
+.switchItem.left{
+  border-width: 0 0.035em 0 0;
+  border-color: #777777;
+  border-style: solid;
+}
+
+.switchItem.right{
+  border-width: 0 0 0 0.035em;
+  border-color: #777777;
+  border-style: solid;
+}
+
+.switchItem p{
+  margin: auto;
+}
+
+.switchItem:not(.active):hover{
+  color: #ffffff;
+  background-color: #777777;
+}
+
+
 .scoreContainer{
   margin: 0 auto;
   display: -moz-flex;
@@ -234,15 +261,15 @@
   width: 100%;
   flex-wrap: wrap;
   -moz-align-items: center;
--webkit-align-items: center;
--ms-align-items: center;
-align-items: center;
+  -webkit-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
   justify-content: center;
 }
 
 .team{
   padding: 0.01em 1em;
-  width: 5em;
+  width: fit-content;
   text-align: center;
   margin: 0.8em;
   background-color: #ebebeb;
@@ -254,7 +281,7 @@ align-items: center;
 
 /*Footer*/
 .footer{
-  padding: 0em 1em 1em 1em;
+  padding: 0em 1em;
   display: block;
 	width: fit-content;
 	margin: 0em auto;

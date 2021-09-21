@@ -60,11 +60,15 @@
 
 @media screen and (max-width: 980px) {
     .minusButton{
+        visibility: hidden;
+        display: none;
         border-width: 0.05em;
         height: 2.95em;
         margin-right: 0.1em;
     }
     .plusButton{
+        visibility: hidden;
+        display: none;
         border-width: 0.05em;
         height: 2.95em;
         margin-left: 0.1em;
