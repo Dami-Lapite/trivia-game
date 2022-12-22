@@ -1,311 +1,113 @@
-*{
-  font-family: 'Urbanist', sans-serif;
-}
-
-.App{
+@import url(./Components.css);
+#App {
   background-color: #ffffff;
-  min-height: 100vh;
-}
-@media screen and (max-width: 1680px) {
-
-			.App {
-				font-size: 15pt;
-			}
-
-		}
-
-		@media screen and (max-width: 1280px) {
-
-			.App {
-				font-size: 14pt;
-			}
-
-		}
-
-		@media screen and (max-width: 736px) {
-
-			.App {
-				font-size: 12pt;
-			}
-
-		}
-
-		@media screen and (max-width: 360px) {
-
-			.App {
-				font-size: 11pt;
-			}
-
-		}
-.container {
-  padding: 0em 1em 0em 1em;
-  display: -moz-flex;
-  display: -webkit-flex;
-  display: -ms-flex;
-  display: flex;
-  -moz-align-items: center;
-  -webkit-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-}
-
-.card{
-  width: 48em;
-  max-width: 100%;
-  padding: 0em;
-  height: max-content;
-  margin: 0 auto;
-}
-@media screen and (max-width: 1280px) {
-
-			.card {
-				padding: 1em 1em 0em 1em;
-        min-width: none;
-				max-width: calc(100% - 6em);
-			}
-
-		}
-
-		@media screen and (max-width: 980px) {
-      .container{
-        display: block;
-      }
-
-			.card {
-        display: block;
-				padding: 1em 1em 0.5em 1em;
-        min-width: none;
-				max-width: calc(100% - 8em);
-			}
-
-      .button-container{
-        display: block;
-      }
-
-		}
-
-		@media screen and (max-width: 736px) {
-      .container{
-        display: block;
-      }
-
-			.card {
-        display: block;
-				padding: 1em 0;
-        min-width: none;
-				max-width: 100%;
-			}
-
-      .button-container{
-        display: block;
-      }
-		}
-
-		@media screen and (max-width: 360px) {
-      .container{
-        display: block;
-      }
-
-			.card {
-        display: block;
-				padding: 1em 0;
-        min-width: none;
-				max-width: 100%;
-			}
-      .button-container{
-        display: block;
-      }
-		}
-
-.headerContainer{
-  text-align: center;
-  color: #4b4b4b;
-}
-
-.button{
-  color: #ffffff;
-  font-size: 1.1em;
-  background-color: #3d3d3d;
-  border-radius: 0.5em;
-  padding: 0.5em 3em;
-  border: 0;
-}
-
-.button:hover{
-  box-shadow: 0 0 0.5em rgb(125, 126, 126);
-}
-
-.buttonContainer{
-  margin: 1.5em auto 0.5em auto;
-  text-align: center;
-}
-
-.gameText{
-  font-size: 1em;
-  font-weight: 600;
-  font-family: 'Montserrat', sans-serif;
-}
-
-.teamText{
-  font-size: 1em;
-  padding-bottom: 1em;
-  font-family: 'Montserrat', sans-serif;
-}
-
-.gameTextContainer{
-    text-align: center;
-    padding-top: 1em;
-    padding-bottom: 1em;
-}
-
-.toggleItem{
-  display: inline-block;
-  flex-grow: 1;
-  text-align: center;
-  border: 0.07em solid #777777;
-  border-radius: 0.25em;
-  margin: 0em 0.2em;
-  padding: 0.5em;
-}
-
-.toggleItem p {
-  margin: auto;
-}
-
-.toggleItem:not(.active):hover{
-  color: #ffffff;
-}
-
-.easy:not(.active):hover{
-  background-color: #7aaf3c;
-  box-shadow: 0 0 0.5em rgba(122, 175, 60) ;
-  border-color: #7aaf3c;
-}
-
-.medium:not(.active):hover{
-  background-color: #fdbb12;
-  box-shadow: 0 0 0.5em rgba(253, 187, 18) ;
-  border-color: #fdbb12;
-}
-
-.hard:not(.active):hover{
-  background-color: #f73c3d;
-  box-shadow: 0 0 0.5em rgba(247, 60, 61) ;
-  border-color: #f73c3d;
-}
-
-.standard:not(.active):hover{
-  background-color: #78adc5;
-  box-shadow: 0 0 0.5em rgba(120, 173, 197);
-  border-color: #78adc5;
-}
-
-.option{
-    background-color: #ebebeb;
-    border-radius: 0.5em;
-    width: 100%;
-    padding: 0.02em;
-    text-align: center;
-    margin: 0.4em auto;
-    font-size: 1em;
-    color: #4b4b4b;
-}
-
-.option:hover{
-  background-color: #c9c9c9;
-}
-
-.optionActive, .optionActive:hover{
-  background-color: #f7f2da;
-}
-
-.active{
-  background-color: #3d3d3d;
-  border-color: #3d3d3d;
-  color: #ffffff;
-}
-
-.switchItem{
-  display: inline-block;
-  padding: 0.3em 1em;
-}
-
-.switchItem.left{
-  border-width: 0 0.035em 0 0;
-  border-color: #777777;
-  border-style: solid;
-}
-
-.switchItem.right{
-  border-width: 0 0 0 0.035em;
-  border-color: #777777;
-  border-style: solid;
-}
-
-.switchItem p{
-  margin: auto;
-}
-
-.switchItem:not(.active):hover{
-  color: #ffffff;
-  background-color: #777777;
-}
-
-
-.scoreContainer{
-  margin: 0 auto;
-  display: -moz-flex;
-  display: -webkit-flex;
-  display: -ms-flex;
-  display: flex;
+  font-family: "Raleway", sans-serif;
   width: 100%;
-  flex-wrap: wrap;
-  -moz-align-items: center;
-  -webkit-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-  justify-content: center;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
-.team{
-  padding: 0.01em 1em;
+@media screen and (max-width: 1680px) {
+  #App {
+    font-size: 15pt;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  #App {
+    font-size: 14pt;
+  }
+}
+
+@media screen and (max-width: 736px) {
+  #App {
+    font-size: 12pt;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  #App {
+    font-size: 11pt;
+  }
+}
+
+#App .header {
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  min-height: 2em;
+  width: 100%;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
-  text-align: center;
-  margin: 0.8em;
-  background-color: #ebebeb;
-  color: #4b4b4b;
-  font-weight: 600;
-  border-radius: 0.25em;
-  display: inline-block;
 }
 
-/*Footer*/
-.footer{
-  padding: 0em 1em;
+#App .header h1 {
+  text-align: center;
   display: block;
-	width: fit-content;
-	margin: 0em auto;
-  text-align: center;
-}
-.footerText{
-	text-align: center;
-	font-size: 100%;
-	color: #777777;
-	font-weight: 600;
+  padding: 0;
+  margin: 10px;
+  font-size: 28pt;
+  font-weight: 400;
 }
 
+@media only screen and (max-width: 600px) {
+  #App .header h1 {
+    font-size: 23pt;
+  }
+}
 
-a:link{
-  color: #777777;
-  text-decoration: none;
+@media only screen and (max-width: 450px) {
+  #App .header h1 {
+    font-size: 20pt;
+  }
 }
-a:visited{
-  color: #777777;
-  text-decoration: none;
+
+@media only screen and (max-width: 300px) {
+  #App .header h1 {
+    font-size: 18pt;
+  }
 }
-a:hover{
-  color: #3d87c4;
+
+#App .footer {
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  margin: auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  min-height: 2em;
+  padding: 10px;
 }
-a:active{
-  color: #3d87c4;
+
+#App .footer img {
+  width: 24px;
+  height: 24px;
+  margin: 0px 5px;
 }
+
+#App .footer .text-link {
+  font-size: 0.9em;
+  color: #424040;
+  margin: 5px 10px;
+}
+
+#App .footer .text-link:hover {
+  font-weight: 500;
+}
+/*# sourceMappingURL=App.css.map */

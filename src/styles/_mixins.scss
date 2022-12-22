@@ -1,0 +1,41 @@
+@mixin header-text {
+  padding: 0;
+  margin: 10px;
+  font-size: 28pt;
+  font-weight: 400;
+  @media only screen and (max-width: 600px) {
+    font-size: 23pt;
+  }
+  @media only screen and (max-width: 450px) {
+    font-size: 20pt;
+  }
+  @media only screen and (max-width: 300px) {
+    font-size: 18pt;
+  }
+}
+
+@mixin block-label {
+  label {
+    display: block;
+    @include medium-weight;
+    padding: 8px 0px;
+    color: $grey;
+  }
+}
+
+@mixin inline-label {
+  label {
+    display: inline;
+    @include medium-weight;
+    margin-right: 10px;
+    color: $grey;
+  }
+}
+
+@mixin small-icon {
+  img {
+    width: 24px;
+    height: 24px;
+    margin: 0px 5px;
+  }
+}

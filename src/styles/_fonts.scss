@@ -1,0 +1,12 @@
+@mixin raleway-font {
+  font-family: "Raleway", sans-serif;
+}
+
+@mixin medium-weight {
+  font-weight: 500;
+}
+
+@mixin hint-text {
+  font-size: 0.9em;
+  color: $grey;
+}
