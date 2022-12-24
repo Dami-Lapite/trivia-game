@@ -1,5 +1,5 @@
 {
-  "title": "TRIVIA GAME",
+  "title": "TRIVIA-GAME",
   "gameForm": {
     "numOfQuestions": {
       "label": "How many questions ?",
@@ -53,7 +53,7 @@
       ]
     },
     "timer": {
-      "label": "30-second Question Timer"
+      "label": "20-second Question Timer"
     },
     "disclaimer": "Not all game parameter combinations are available",
     "invalidCombination": "Sorry, there aren't enough/any questions matching your selected parameters. Try changing a parameter.",
@@ -66,7 +66,8 @@
       "submitLabel": "Submit Answer",
       "continueLabel": "Continue",
       "correctAnswer": "That's Correct!",
-      "incorrectAnswer": "That's Incorrect!"
+      "incorrectAnswer": "That's Incorrect!",
+      "unAnswered": "You ran out of time..."
     },
     "results": { "prefix": "You answered ", "suffix": " questions correctly" },
     "restart": "Play Again"

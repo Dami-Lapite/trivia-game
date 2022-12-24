@@ -36,37 +36,39 @@ class App extends Component {
 
   render() {
     return (
-      <div id="App" className="App">
-        <div className="header">
-          <h1>TRIVIA GAME</h1>
-        </div>
+      <div>
         {this.state.content !== null && this.state.isLoaded ? (
-          <TriviaGame content={this.state.content} />
+          <div id="App" className="App">
+            <div className="header" id="header">
+              <h1>{this.state.content.title}</h1>
+            </div>
+            <TriviaGame content={this.state.content} />
+            <div className="footer" id="footer">
+              <a
+                className="text-link"
+                target="_blank"
+                rel="noreferrer"
+                href="https://opentdb.com/api_config.php"
+              >
+                Open Trivia API
+              </a>
+              <a target="_blank" rel="noreferrer" href="https://icons8.com">
+                <img src={icons8} alt="icons8 logo" />
+              </a>
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href="https://github.com/Dami-Lapite/trivia-game"
+              >
+                <img src={github} alt="github logo" />
+              </a>
+            </div>
+          </div>
         ) : (
-          <div className="error">
+          <div>
             <p>Sorry, there's an issue loading content for this page :(</p>
           </div>
         )}
-        <div className="footer">
-          <a
-            className="text-link"
-            target="_blank"
-            rel="noreferrer"
-            href="https://opentdb.com/api_config.php"
-          >
-            Open Trivia API
-          </a>
-          <a target="_blank" rel="noreferrer" href="https://icons8.com">
-            <img src={icons8} alt="icons8 logo" />
-          </a>
-          <a
-            target="_blank"
-            rel="noreferrer"
-            href="https://github.com/Dami-Lapite/trivia-game"
-          >
-            <img src={github} alt="github logo" />
-          </a>
-        </div>
       </div>
     );
   }

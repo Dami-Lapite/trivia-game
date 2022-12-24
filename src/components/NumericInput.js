@@ -72,6 +72,7 @@ class NumericInput extends Component {
         <label htmlFor={this.props.fieldId}>{this.props.content.label}</label>
         <input
           type="text"
+          autoComplete="off"
           name="numeric-input"
           id={this.props.fieldId}
           defaultValue={this.props.min}

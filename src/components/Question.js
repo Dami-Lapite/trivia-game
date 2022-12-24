@@ -3,6 +3,7 @@ import AnswerSelect from "./AnswerSelect";
 import SubmitButton from "./SubmitButton";
 import "../styles/App.css";
 import { toLower, cloneDeep } from "lodash";
+import Timer from "./Timer";
 import decodeHtmlEntities from "../functions/decodeHtmlEntities";
 
 export class Question extends Component {
@@ -17,6 +18,17 @@ export class Question extends Component {
 
   setAnswer = (answer) => {
     this.setState({ answer: answer });
+  };
+
+  timerCallBack = () => {
+    if (this.state.answer === null) {
+      this.setState({
+        isAnswerCorrect: false,
+      });
+      this.setState({ isAnswered: true });
+    } else {
+      this.handleSubmit();
+    }
   };
 
   resetState = () => {
@@ -56,6 +68,9 @@ export class Question extends Component {
       <div>
         {!this.state.isAnswered && (
           <div className="question-container">
+            {this.props.showTimer && (
+              <Timer parentCallBack={this.timerCallBack} />
+            )}
             <p className="question-text">
               {decodeHtmlEntities(this.props.question.question)}
             </p>
@@ -81,13 +96,19 @@ export class Question extends Component {
               </div>
             ) : (
               <div>
-                <p>{this.props.content.incorrectAnswer}</p>
+                {this.state.answer !== null ? (
+                  <p>{this.props.content.incorrectAnswer}</p>
+                ) : (
+                  <p>{this.props.content.unAnswered}</p>
+                )}
                 <div className="correct-answer">
                   <p>{decodeHtmlEntities(this.props.correctAnswer)}</p>
                 </div>
-                <div className="incorrect-answer">
-                  <p>{decodeHtmlEntities(this.state.answer)}</p>
-                </div>
+                {this.state.answer !== null && (
+                  <div className="incorrect-answer">
+                    <p>{decodeHtmlEntities(this.state.answer)}</p>
+                  </div>
+                )}
               </div>
             )}
             <SubmitButton

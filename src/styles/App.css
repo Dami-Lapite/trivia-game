@@ -45,7 +45,7 @@
   }
 }
 
-#App .header {
+#header {
   -webkit-box-flex: 0;
       -ms-flex-positive: 0;
           flex-grow: 0;
@@ -56,7 +56,7 @@
   width: fit-content;
 }
 
-#App .header h1 {
+#header h1 {
   text-align: center;
   display: block;
   padding: 0;
@@ -65,7 +65,7 @@
   font-weight: 400;
 }
 
-#App .footer {
+#footer {
   -webkit-box-flex: 0;
       -ms-flex-positive: 0;
           flex-grow: 0;
@@ -77,19 +77,19 @@
   padding: 10px;
 }
 
-#App .footer img {
+#footer img {
   width: 24px;
   height: 24px;
   margin: 0px 5px;
 }
 
-#App .footer .text-link {
+#footer .text-link {
   font-size: 0.9em;
   color: #424040;
   margin: 5px 10px;
 }
 
-#App .footer .text-link:hover {
+#footer .text-link:hover {
   font-weight: 500;
 }
 /*# sourceMappingURL=App.css.map */

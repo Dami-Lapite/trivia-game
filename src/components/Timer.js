@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import styles from "../styles/timer.module.css";
+import "../styles/App.css";
 
 const Timer = (props) => {
   // Ref is used to keep track of setInterval and
@@ -39,13 +39,17 @@ const Timer = (props) => {
           ":" +
           (seconds > 9 ? seconds : "0" + seconds)
       );
+      if (minutes === 0 && seconds <= 10) {
+        document.getElementById("timer").classList.add("running-out");
+      }
     }
   };
 
   // Essentialy runs the timer
   const clearTimer = (e) => {
     // Initialize timer display
-    setTimer("00:30");
+    setTimer("00:20");
+    document.getElementById("timer").classList.remove("running-out");
     // Clear interval if still running
     if (Ref.current) clearInterval(Ref.current);
     // setInterval essentially resets the timer display
@@ -62,7 +66,7 @@ const Timer = (props) => {
     let deadline = new Date();
 
     // Adjust deadline to current time + (countdown duration)
-    deadline.setSeconds(deadline.getSeconds() + 30);
+    deadline.setSeconds(deadline.getSeconds() + 20);
     return deadline;
   };
 
@@ -82,13 +86,13 @@ const Timer = (props) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       props.parentCallBack();
-    }, 30000);
+    }, 20000);
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <div className="timer" id="timer">
-      <h2>{timer}</h2>
+      <p>{timer}</p>
     </div>
   );
 };

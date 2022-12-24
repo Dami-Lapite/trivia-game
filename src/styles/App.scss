@@ -26,30 +26,32 @@
   @media screen and (max-width: 360px) {
     font-size: 11pt;
   }
-  .header {
-    flex-grow: 0;
-    min-height: 2em;
-    width: 100%;
-    width: fit-content;
-    h1 {
-      text-align: center;
-      display: block;
-      @include header-text;
-    }
+}
+
+#header {
+  flex-grow: 0;
+  min-height: 2em;
+  width: 100%;
+  width: fit-content;
+  h1 {
+    text-align: center;
+    display: block;
+    @include header-text;
   }
-  .footer {
-    flex-grow: 0;
-    margin: auto;
-    width: fit-content;
-    min-height: 2em;
-    padding: 10px;
-    @include small-icon;
-    .text-link {
-      @include hint-text;
-      margin: 5px 10px;
-      &:hover {
-        @include medium-weight;
-      }
+}
+
+#footer {
+  flex-grow: 0;
+  margin: auto;
+  width: fit-content;
+  min-height: 2em;
+  padding: 10px;
+  @include small-icon;
+  .text-link {
+    @include hint-text;
+    margin: 5px 10px;
+    &:hover {
+      @include medium-weight;
     }
   }
 }

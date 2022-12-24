@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import Question from "./Question";
 import SubmitButton from "./SubmitButton";
-
+import getRandomInt from "../functions/getRandomInt";
 import "../styles/App.css";
-import { cloneDeep, isUndefined } from "lodash";
+import { cloneDeep, get, isUndefined } from "lodash";
 
 class Game extends Component {
   constructor(props) {
@@ -26,7 +26,7 @@ class Game extends Component {
       answers = ["True", "False"];
     } else {
       answers = cloneDeep(question.incorrect_answers);
-      let answerIndex = Math.random(answers.length + 1);
+      let answerIndex = getRandomInt(answers.length + 1);
       answers.splice(answerIndex, 0, correctAnswer);
     }
     this.setState({ question: question });
@@ -86,6 +86,7 @@ class Game extends Component {
               answers={this.state.answers}
               correctAnswer={this.state.correctAnswer}
               handleContinue={this.handleContinue}
+              showTimer={this.props.setTimer}
             />
           </div>
         )}
