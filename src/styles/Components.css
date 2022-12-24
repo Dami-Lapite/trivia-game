@@ -71,10 +71,10 @@
 
 .submit-section button:hover {
   font-size: 1.1em;
-  background-color: #007ddc;
-  -webkit-box-shadow: 0 0 0.5em #007ddc;
-          box-shadow: 0 0 0.5em #007ddc;
-  border-color: #007ddc;
+  background-color: #48b;
+  -webkit-box-shadow: 0 0 0.5em #48b;
+          box-shadow: 0 0 0.5em #48b;
+  border-color: #48b;
 }
 
 .numeric-input-container label {
@@ -257,7 +257,7 @@
 }
 
 #game h3 span {
-  color: #007ddc;
+  color: #48b;
 }
 
 #game h3 span.index {
