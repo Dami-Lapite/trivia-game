@@ -11,12 +11,14 @@ class TriviaGame extends Component {
       showForm: true,
       questions: [],
       setTimer: false,
+      twoPlayer: false,
     };
   }
 
-  setQuestions = (questions, setTimer) => {
+  setQuestions = (questions, setTimer, twoPlayer) => {
     this.setState({ questions: questions });
     this.setState({ setTimer: setTimer });
+    this.setState({ twoPlayer: twoPlayer });
     this.setState({ showForm: false });
   };
 
@@ -42,6 +44,7 @@ class TriviaGame extends Component {
             content={this.props.content.game}
             questions={this.state.questions}
             setTimer={this.state.setTimer}
+            twoPlayer={this.state.twoPlayer}
             allDone={this.restart}
           />
         )}

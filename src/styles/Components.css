@@ -8,10 +8,6 @@
   width: 100%;
 }
 
-#trivia-game * {
-  overflow-wrap: break-word;
-}
-
 #game-form {
   margin: auto;
   width: 90%;
@@ -190,6 +186,12 @@
   color: #ffffff;
 }
 
+.option-checkbox-container {
+  display: inline-block;
+  margin-right: 1em;
+  margin-bottom: 1em;
+}
+
 .option-checkbox-container label {
   display: inline;
   font-weight: 500;
@@ -252,6 +254,14 @@
 
 #game h3 {
   text-align: center;
+}
+
+#game h3 span {
+  color: #007ddc;
+}
+
+#game h3 span.index {
+  color: #000000;
 }
 
 .question-container {
@@ -354,6 +364,11 @@
   padding: 0.2em;
   text-align: center;
   font-weight: 500;
+}
+
+.game-results-container p span {
+  display: block;
+  margin: 0.5em 0em;
 }
 
 #timer {

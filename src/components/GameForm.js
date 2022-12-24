@@ -17,6 +17,7 @@ class GameForm extends Component {
       difficulty: "0",
       questionType: "0",
       timerSelect: false,
+      twoPlayer: false,
       error: false,
       fetchError: false,
     };
@@ -34,7 +35,11 @@ class GameForm extends Component {
 
   createURL = () => {
     let url = `https://opentdb.com/api.php?`;
-    url += `amount=` + this.state.numOfQuestions;
+    if (this.state.twoPlayer) {
+      url += `amount=` + String(Number(this.state.numOfQuestions) * 2);
+    } else {
+      url += `amount=` + this.state.numOfQuestions;
+    }
     if (this.state.category !== "0") {
       url += `&category=` + this.state.category;
     }
@@ -52,7 +57,11 @@ class GameForm extends Component {
     this.fetchQuestions(queryURL)
       .then((data) => {
         if (data.response_code === 0 && !isEmpty(data.results)) {
-          this.props.returnQuestions(data.results, this.state.timerSelect);
+          this.props.returnQuestions(
+            data.results,
+            this.state.timerSelect,
+            this.state.twoPlayer
+          );
         } else {
           this.setState({
             error: true,
@@ -112,6 +121,11 @@ class GameForm extends Component {
           <OptionCheckbox
             content={this.props.content.timer}
             fieldId="timerSelect"
+            setFieldValue={this.setFormField}
+          />
+          <OptionCheckbox
+            content={this.props.content.twoPlayer}
+            fieldId="twoPlayer"
             setFieldValue={this.setFormField}
           />
         </div>

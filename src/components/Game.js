@@ -3,7 +3,7 @@ import Question from "./Question";
 import SubmitButton from "./SubmitButton";
 import getRandomInt from "../functions/getRandomInt";
 import "../styles/App.css";
-import { cloneDeep, get, isUndefined } from "lodash";
+import { cloneDeep, isUndefined } from "lodash";
 
 class Game extends Component {
   constructor(props) {
@@ -13,9 +13,12 @@ class Game extends Component {
       answers: [],
       correctAnswer: null,
       questionIndex: 0,
+      twoPlayerIndex: 1,
       score: 0,
       showResults: false,
       showQuestion: false,
+      isPlayerOne: true,
+      scores: [0, 0],
     };
   }
 
@@ -43,16 +46,40 @@ class Game extends Component {
       score: 0,
       showResults: false,
       showQuestion: false,
+      twoPlayerIndex: 1,
+      isPlayerOne: true,
+      scores: [0, 0],
     });
   };
 
   handleContinue = (answeredCorrectly) => {
     if (answeredCorrectly) {
-      let score = this.state.score + 1;
-      this.setState({ score: score });
+      if (this.props.twoPlayer) {
+        let playerOneScore = this.state.scores[0];
+        let playerTwoScore = this.state.scores[1];
+        if (this.state.isPlayerOne) {
+          playerOneScore += 1;
+        } else {
+          playerTwoScore += 1;
+        }
+        let scores = [playerOneScore, playerTwoScore];
+        this.setState({ scores: scores });
+      } else {
+        let score = this.state.score + 1;
+        this.setState({ score: score });
+      }
     }
     let newIndex = this.state.questionIndex + 1;
     if (!isUndefined(this.props.questions[newIndex])) {
+      if (this.props.twoPlayer) {
+        this.setState({
+          isPlayerOne: (newIndex + 1) % 2 !== 0,
+        });
+        if (!this.state.isPlayerOne) {
+          let twoPlayerIndex = this.state.twoPlayerIndex + 1;
+          this.setState({ twoPlayerIndex: twoPlayerIndex });
+        }
+      }
       this.setQuestion(this.props.questions[newIndex]);
       this.setState({ questionIndex: newIndex });
     } else {
@@ -77,8 +104,18 @@ class Game extends Component {
         {this.state.showQuestion && (
           <div>
             <h3>
+              {this.props.twoPlayer &&
+                (this.state.isPlayerOne ? (
+                  <span>{this.props.content.playerOne}</span>
+                ) : (
+                  <span>{this.props.content.playerTwo}</span>
+                ))}
               {this.props.content.questionTitle}
-              {this.state.questionIndex + 1}
+              {this.props.twoPlayer ? (
+                <span className="index">{this.state.twoPlayerIndex}</span>
+              ) : (
+                <span className="index">{this.state.questionIndex + 1}</span>
+              )}
             </h3>
             <Question
               content={this.props.content.question}
@@ -92,11 +129,27 @@ class Game extends Component {
         )}
         {this.state.showResults && (
           <div className="game-results-container">
-            <p>
-              {this.props.content.results.prefix}
-              {this.state.score}/{this.props.questions.length}
-              {this.props.content.results.suffix}
-            </p>
+            {this.props.twoPlayer && (
+              <p>
+                <span>
+                  {this.props.content.results.playerOnePrefix}
+                  {this.state.scores[0]}/{this.props.questions.length / 2}
+                  {this.props.content.results.suffix}
+                </span>
+                <span>
+                  {this.props.content.results.playerTwoPrefix}
+                  {this.state.scores[1]}/{this.props.questions.length / 2}
+                  {this.props.content.results.suffix}
+                </span>
+              </p>
+            )}
+            {!this.props.twoPlayer && (
+              <p>
+                {this.props.content.results.prefix}
+                {this.state.score}/{this.props.questions.length}
+                {this.props.content.results.suffix}
+              </p>
+            )}
             <SubmitButton
               label={this.props.content.restart}
               handleSubmit={this.handleRestart}

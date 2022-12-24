@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import decodeHtmlEntities from "../functions/decodeHtmlEntities";
 import "../styles/App.css";
 
 class AnswerSelect extends Component {
@@ -34,7 +35,7 @@ class AnswerSelect extends Component {
             className="answer"
             onClick={() => this.selectAnswer(answer, index)}
           >
-            <p>{answer}</p>
+            <p>{decodeHtmlEntities(answer)}</p>
           </div>
         ))}
       </div>

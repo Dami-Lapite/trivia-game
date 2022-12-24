@@ -2,7 +2,7 @@
   "title": "TRIVIA-GAME",
   "gameForm": {
     "numOfQuestions": {
-      "label": "How many questions ?",
+      "label": "No. of questions (per player)",
       "hint": "Max: 50 Min: 1"
     },
     "category": {
@@ -55,6 +55,9 @@
     "timer": {
       "label": "20-second Question Timer"
     },
+    "twoPlayer": {
+      "label": "2-Player Mode"
+    },
     "disclaimer": "Not all game parameter combinations are available",
     "invalidCombination": "Sorry, there aren't enough/any questions matching your selected parameters. Try changing a parameter.",
     "fetchError": "Sorry, there's been an error fetching questions",
@@ -62,6 +65,8 @@
   },
   "game": {
     "questionTitle": "Question-",
+    "playerOne": "Player-1: ",
+    "playerTwo": "Player-2: ",
     "question": {
       "submitLabel": "Submit Answer",
       "continueLabel": "Continue",
@@ -69,7 +74,12 @@
       "incorrectAnswer": "That's Incorrect!",
       "unAnswered": "You ran out of time..."
     },
-    "results": { "prefix": "You answered ", "suffix": " questions correctly" },
+    "results": {
+      "prefix": "You answered ",
+      "playerOnePrefix": "Player-1 answered ",
+      "playerTwoPrefix": "Player-2 answered ",
+      "suffix": " questions correctly"
+    },
     "restart": "Play Again"
   }
 }
