@@ -59,5 +59,16 @@
     "invalidCombination": "Sorry, there aren't enough/any questions matching your selected parameters. Try changing a parameter.",
     "fetchError": "Sorry, there's been an error fetching questions",
     "submitLabel": "Start"
+  },
+  "game": {
+    "questionTitle": "Question-",
+    "question": {
+      "submitLabel": "Submit Answer",
+      "continueLabel": "Continue",
+      "correctAnswer": "That's Correct!",
+      "incorrectAnswer": "That's Incorrect!"
+    },
+    "results": { "prefix": "You answered ", "suffix": " questions correctly" },
+    "restart": "Play Again"
   }
 }

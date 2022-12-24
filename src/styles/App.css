@@ -61,26 +61,8 @@
   display: block;
   padding: 0;
   margin: 10px;
-  font-size: 28pt;
+  font-size: 2em;
   font-weight: 400;
-}
-
-@media only screen and (max-width: 600px) {
-  #App .header h1 {
-    font-size: 23pt;
-  }
-}
-
-@media only screen and (max-width: 450px) {
-  #App .header h1 {
-    font-size: 20pt;
-  }
-}
-
-@media only screen and (max-width: 300px) {
-  #App .header h1 {
-    font-size: 18pt;
-  }
 }
 
 #App .footer {

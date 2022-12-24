@@ -1,16 +1,20 @@
 @mixin header-text {
   padding: 0;
   margin: 10px;
-  font-size: 28pt;
+  font-size: 2em;
   font-weight: 400;
-  @media only screen and (max-width: 600px) {
-    font-size: 23pt;
+}
+
+@mixin game-section {
+  margin: auto;
+  width: 90%;
+  max-width: 1100px;
+  padding: 10px 0px;
+  * {
+    transition: 100ms all ease-in-out;
   }
-  @media only screen and (max-width: 450px) {
-    font-size: 20pt;
-  }
-  @media only screen and (max-width: 300px) {
-    font-size: 18pt;
+  @media only screen and (max-width: 900px) {
+    width: 100%;
   }
 }
 
@@ -37,5 +41,12 @@
     width: 24px;
     height: 24px;
     margin: 0px 5px;
+  }
+}
+
+@mixin body-text {
+  font-size: 1.05em;
+  @media only screen and (max-width: 700px) {
+    font-size: 1.2em;
   }
 }

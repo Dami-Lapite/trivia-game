@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import NumericInput from "./NumericInput";
 import DropDown from "./DropDown";
+import SubmitButton from "./SubmitButton";
 import ChoiceSelect from "./ChoiceSelect";
 import OptionCheckbox from "./OptionCheckbox";
 import info from "../assets/images/icons8-info-24.png";
@@ -130,11 +131,10 @@ class GameForm extends Component {
             </p>
           )}
         </div>
-        <div className="submit-section">
-          <button onClick={this.handleSubmit}>
-            {this.props.content.submitLabel}
-          </button>
-        </div>
+        <SubmitButton
+          label={this.props.content.submitLabel}
+          handleSubmit={this.handleSubmit}
+        />
       </div>
     );
   }
