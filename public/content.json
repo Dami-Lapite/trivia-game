@@ -72,7 +72,7 @@
       "continueLabel": "Continue",
       "correctAnswer": "That's Correct!",
       "incorrectAnswer": "That's Incorrect!",
-      "unAnswered": "You ran out of time..."
+      "unAnswered": "You ran out of time"
     },
     "results": {
       "prefix": "You answered ",

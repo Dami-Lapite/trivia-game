@@ -4,7 +4,7 @@
 @import url(./Components.css);
 
 #App {
-  background-color: #ffffff;
+  background-color: $off_white;
   @include raleway-font;
   width: 100%;
   min-height: 100vh;
