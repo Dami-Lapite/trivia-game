@@ -180,12 +180,14 @@
   @include body-text;
   .question-text {
     text-align: left;
+    line-height: 1.5em;
     margin: 3em 0em;
   }
   .answer-container {
     .answer {
       width: 100%;
       min-height: 50px;
+      line-height: 1.5em;
       border: 1px solid $light_grey;
       background-color: $light_grey;
       border-radius: 0.5em;
@@ -213,6 +215,7 @@
   p {
     padding: 0.2em;
     text-align: center;
+    line-height: 1.5em;
     @include medium-weight;
   }
   .correct-answer,
