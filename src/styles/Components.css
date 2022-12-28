@@ -1,0 +1,403 @@
+#trivia-game {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+#game-form {
+  margin: auto;
+  width: 90%;
+  max-width: 1100px;
+  padding: 10px 0px;
+}
+
+#game-form * {
+  -webkit-transition: 100ms all ease-in-out;
+  transition: 100ms all ease-in-out;
+}
+
+@media only screen and (max-width: 900px) {
+  #game-form {
+    width: 100%;
+  }
+}
+
+#game-form .form-section {
+  margin: 0.8em;
+}
+
+#game-form .disclaimer {
+  margin: 0.8em;
+}
+
+#game-form .disclaimer img {
+  width: 24px;
+  height: 24px;
+  margin: 0px 5px;
+}
+
+#game-form .disclaimer p {
+  display: inline;
+  font-size: 0.9em;
+  color: #424040;
+}
+
+#game-form .disclaimer p.error {
+  color: #d80505;
+}
+
+.submit-section {
+  margin: auto;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+.submit-section button {
+  margin: 15px;
+  font-family: "Raleway", sans-serif;
+  min-width: 180px;
+  min-height: 45px;
+  border-radius: 0.5em;
+  font-size: 1em;
+  border: 1px solid #181818;
+  background-color: #181818;
+  color: #ffffff;
+}
+
+.submit-section button:hover {
+  font-size: 1.1em;
+  background-color: #48b;
+  -webkit-box-shadow: 0 0 0.5em #48b;
+          box-shadow: 0 0 0.5em #48b;
+  border-color: #48b;
+}
+
+.numeric-input-container label {
+  display: block;
+  font-weight: 500;
+  padding: 8px 0px;
+  color: #424040;
+}
+
+.numeric-input-container input {
+  display: block;
+  color: #181818;
+  text-align: left;
+  font-family: "Raleway", sans-serif;
+  width: 200px;
+  height: 40px;
+  font-size: 1.1em;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #424040;
+  background-color: #ffffff;
+}
+
+.numeric-input-container .hint {
+  font-size: 0.9em;
+  color: #424040;
+}
+
+.dropdown-container label {
+  display: block;
+  font-weight: 500;
+  padding: 8px 0px;
+  color: #424040;
+}
+
+.dropdown-container select {
+  width: 100%;
+  color: #181818;
+  font-size: 1em;
+  font-family: "Raleway", sans-serif;
+  border-radius: 0.5em;
+  border: 1px solid #181818;
+  padding: 8px 5px;
+  background: url(../assets/images/icons8-down-25.png) no-repeat 98% #ffffff;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.dropdown-container select option {
+  color: #181818;
+}
+
+.choice-select-container label {
+  display: block;
+  font-weight: 500;
+  padding: 8px 0px;
+  color: #424040;
+}
+
+.choice-select-container .choice-select {
+  width: 100%;
+  max-width: 100%;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: #ffffff;
+}
+
+.choice-select-container .choice-select .choice {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  margin: 0.2em;
+  border: 1px solid #181818;
+  padding: 0.5em;
+  border-radius: 0.5em;
+  text-align: center;
+}
+
+.choice-select-container .choice-select .choice:first-child {
+  margin-left: 0;
+}
+
+.choice-select-container .choice-select .choice:last-child {
+  margin-right: 0;
+}
+
+.choice-select-container .choice-select .choice:hover {
+  color: #ffffff;
+  font-size: 1.1em;
+  background-color: #424040;
+  -webkit-box-shadow: 0 0 0.5em #424040;
+          box-shadow: 0 0 0.5em #424040;
+  border-color: #424040;
+}
+
+.choice-select-container .choice-select .choice.selected {
+  background-color: #181818;
+  color: #ffffff;
+}
+
+.option-checkbox-container {
+  display: inline-block;
+  margin-right: 1em;
+  margin-bottom: 1em;
+  background-color: #ffffff;
+}
+
+.option-checkbox-container label {
+  display: inline;
+  font-weight: 500;
+  margin-right: 10px;
+  color: #424040;
+}
+
+.option-checkbox-container input {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  margin: auto;
+  width: 30px;
+  height: 30px;
+  border: 1px solid currentColor;
+  border-radius: 0.5em;
+  display: inline-grid;
+  display: -ms-inline-grid;
+  display: -moz-inline-grid;
+  place-content: center;
+}
+
+.option-checkbox-container input::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  border-radius: 0.5em;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-transition: 120ms -webkit-transform ease-in-out;
+  transition: 120ms -webkit-transform ease-in-out;
+  transition: 120ms transform ease-in-out;
+  transition: 120ms transform ease-in-out, 120ms -webkit-transform ease-in-out;
+  -webkit-box-shadow: inset 18px 18px #424040;
+          box-shadow: inset 18px 18px #424040;
+}
+
+.option-checkbox-container input:checked::before {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+#game {
+  margin: auto;
+  width: 90%;
+  max-width: 1100px;
+  padding: 10px 0px;
+}
+
+#game * {
+  -webkit-transition: 100ms all ease-in-out;
+  transition: 100ms all ease-in-out;
+}
+
+@media only screen and (max-width: 900px) {
+  #game {
+    width: 100%;
+  }
+}
+
+#game h3 {
+  text-align: center;
+}
+
+#game h3 span {
+  color: #48b;
+}
+
+#game h3 span.index {
+  color: #000000;
+}
+
+.question-container {
+  margin: 1em;
+  font-size: 1.05em;
+}
+
+@media only screen and (max-width: 700px) {
+  .question-container {
+    font-size: 1.2em;
+  }
+}
+
+.question-container .question-text {
+  text-align: left;
+  line-height: 1.5em;
+  margin: 3em 0em;
+}
+
+.question-container .answer-container .answer {
+  width: 100%;
+  min-height: 50px;
+  line-height: 1.5em;
+  border: 1px solid #eaeaea;
+  background-color: #eaeaea;
+  border-radius: 0.5em;
+  margin: 0.5em 0em;
+}
+
+.question-container .answer-container .answer p {
+  padding: 0.2em;
+  text-align: center;
+  font-weight: 500;
+}
+
+.question-container .answer-container .answer:hover {
+  border-color: #f2eba8;
+  background-color: #f2eba8;
+}
+
+.question-container .answer-container .answer.selected {
+  background-color: #424040;
+  color: #ffffff;
+}
+
+.question-result-container {
+  margin: 1em;
+  font-size: 1.05em;
+}
+
+@media only screen and (max-width: 700px) {
+  .question-result-container {
+    font-size: 1.2em;
+  }
+}
+
+.question-result-container p {
+  padding: 0.2em;
+  text-align: center;
+  line-height: 1.5em;
+  font-weight: 500;
+}
+
+.question-result-container .correct-answer,
+.question-result-container .incorrect-answer {
+  width: 100%;
+  min-height: 50px;
+  border-radius: 0.5em;
+  margin: 0.5em 0em;
+}
+
+.question-result-container .correct-answer p,
+.question-result-container .incorrect-answer p {
+  color: #ffffff;
+}
+
+.question-result-container .correct-answer {
+  border: 1px solid #7aaf3c;
+  background: url(../assets/images/icons8-checkmark-24.png) no-repeat 98% #7aaf3c;
+}
+
+.question-result-container .incorrect-answer {
+  border: 1px solid #d80505;
+  background: url(../assets/images/icons8-circled-x-24.png) no-repeat 98% #d80505;
+}
+
+.game-results-container {
+  margin: 1em;
+  font-size: 1.05em;
+  min-height: 50px;
+  border: 1px solid #eaeaea;
+  background-color: #eaeaea;
+  border-radius: 0.5em;
+}
+
+@media only screen and (max-width: 700px) {
+  .game-results-container {
+    font-size: 1.2em;
+  }
+}
+
+.game-results-container p {
+  padding: 0.2em;
+  text-align: center;
+  font-weight: 500;
+}
+
+.game-results-container p span {
+  display: block;
+  margin: 0.5em 0em;
+}
+
+#timer {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  background-color: #ffffff;
+  margin: auto;
+  padding: 8px;
+  border: 2px solid #181818;
+  border-radius: 0.5em;
+  font-size: 1.1em;
+}
+
+#timer p {
+  padding: 0;
+  margin: 0;
+  font-weight: 600;
+  font-family: "Teko", sans-serif;
+}
+
+#timer.running-out {
+  color: #d80505;
+  border-color: #d80505;
+}
+/*# sourceMappingURL=Components.css.map */

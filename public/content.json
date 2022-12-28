@@ -1,0 +1,85 @@
+{
+  "title": "TRIVIA-GAME",
+  "gameForm": {
+    "numOfQuestions": {
+      "label": "No. of questions (per player)",
+      "hint": "Max: 50 Min: 1"
+    },
+    "category": {
+      "label": "Category",
+      "options": [
+        { "name": "Any Category", "value": "0" },
+        { "name": "General Knowledge", "value": "9" },
+        { "name": "Books", "value": "10" },
+        { "name": "Films", "value": "11" },
+        { "name": "Japanese Anime & Manga", "value": "31" },
+        { "name": "Cartoons & Animations", "value": "32" },
+        { "name": "Music", "value": "12" },
+        { "name": "Musicals & Theatres", "value": "13" },
+        { "name": "Television", "value": "14" },
+        { "name": "Video Games", "value": "15" },
+        { "name": "Board Games", "value": "16" },
+        { "name": "Science & Nature", "value": "17" },
+        { "name": "Computers", "value": "18" },
+        { "name": "Mathematics", "value": "19" },
+        { "name": "Mythology", "value": "20" },
+        { "name": "Sports", "value": "21" },
+        { "name": "Geography", "value": "22" },
+        { "name": "History", "value": "23" },
+        { "name": "Politics", "value": "24" },
+        { "name": "Art", "value": "25" },
+        { "name": "Celebrities", "value": "26" },
+        { "name": "Animals", "value": "27" },
+        { "name": "Vehicles", "value": "28" },
+        { "name": "Comics", "value": "29" },
+        { "name": "Gadgets", "value": "30" }
+      ]
+    },
+    "difficulty": {
+      "label": "Difficulty",
+      "options": [
+        { "name": "Easy", "value": "easy" },
+        { "name": "Medium", "value": "medium" },
+        { "name": "Hard", "value": "hard" },
+        { "name": "Any", "value": "0" }
+      ]
+    },
+    "questionType": {
+      "label": "Question Type",
+      "options": [
+        { "name": "Multiple Choice", "value": "multiple" },
+        { "name": "True/False", "value": "boolean" },
+        { "name": "Any", "value": "0" }
+      ]
+    },
+    "timer": {
+      "label": "20-second Question Timer"
+    },
+    "twoPlayer": {
+      "label": "2-Player Mode"
+    },
+    "disclaimer": "Not all game parameter combinations are available",
+    "invalidCombination": "Sorry, there aren't enough/any questions matching your selected parameters. Try changing a parameter.",
+    "fetchError": "Sorry, there's been an error fetching questions",
+    "submitLabel": "Start"
+  },
+  "game": {
+    "questionTitle": "Question-",
+    "playerOne": "Player-1: ",
+    "playerTwo": "Player-2: ",
+    "question": {
+      "submitLabel": "Submit Answer",
+      "continueLabel": "Continue",
+      "correctAnswer": "That's Correct!",
+      "incorrectAnswer": "That's Incorrect!",
+      "unAnswered": "You ran out of time"
+    },
+    "results": {
+      "prefix": "You answered ",
+      "playerOnePrefix": "Player-1 answered ",
+      "playerTwoPrefix": "Player-2 answered ",
+      "suffix": " questions correctly"
+    },
+    "restart": "Play Again"
+  }
+}
