@@ -61,7 +61,7 @@
     outline: none;
     border: none;
     border-bottom: 1px solid $grey;
-    background-color: $off_white;
+    background-color: $white;
   }
   .hint {
     @include hint-text;
@@ -78,8 +78,7 @@
     border-radius: 0.5em;
     border: 1px solid $charcoal;
     padding: 8px 5px;
-    background: url(../assets/images/icons8-down-25.png) no-repeat 98%
-      $off_white;
+    background: url(../assets/images/icons8-down-25.png) no-repeat 98% $white;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -101,7 +100,7 @@
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
-    background-color: $off_white;
+    background-color: $white;
     .choice {
       flex-grow: 1;
       margin: 0.2em;
@@ -135,7 +134,7 @@
   margin-right: 1em;
   margin-bottom: 1em;
   @include inline-label;
-  background-color: $off_white;
+  background-color: $white;
   input {
     appearance: none;
     margin: auto;
@@ -259,7 +258,7 @@
 
 #timer {
   width: max-content;
-  background-color: $off_white;
+  background-color: $white;
   margin: auto;
   padding: 8px;
   border: 2px solid $charcoal;

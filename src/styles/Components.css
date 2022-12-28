@@ -95,7 +95,7 @@
   outline: none;
   border: none;
   border-bottom: 1px solid #424040;
-  background-color: #f9f9f9;
+  background-color: #ffffff;
 }
 
 .numeric-input-container .hint {
@@ -118,7 +118,7 @@
   border-radius: 0.5em;
   border: 1px solid #181818;
   padding: 8px 5px;
-  background: url(../assets/images/icons8-down-25.png) no-repeat 98% #f9f9f9;
+  background: url(../assets/images/icons8-down-25.png) no-repeat 98% #ffffff;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -152,7 +152,7 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  background-color: #f9f9f9;
+  background-color: #ffffff;
 }
 
 .choice-select-container .choice-select .choice {
@@ -192,7 +192,7 @@
   display: inline-block;
   margin-right: 1em;
   margin-bottom: 1em;
-  background-color: #f9f9f9;
+  background-color: #ffffff;
 }
 
 .option-checkbox-container label {
@@ -381,7 +381,7 @@
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
-  background-color: #f9f9f9;
+  background-color: #ffffff;
   margin: auto;
   padding: 8px;
   border: 2px solid #181818;

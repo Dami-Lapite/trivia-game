@@ -4,7 +4,7 @@
 @import url(./Components.css);
 
 #App {
-  background-color: $off_white;
+  background-color: $white;
   @include raleway-font;
   width: 100%;
   min-height: 100vh;
@@ -35,7 +35,6 @@
   flex-grow: 0;
   min-height: 2em;
   width: 100%;
-  width: fit-content;
   h1 {
     text-align: center;
     display: block;
