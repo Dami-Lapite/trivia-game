@@ -1,5 +1,5 @@
 {
-  "title": "TRIVIA-GAME",
+  "title": "little-trivia-game",
   "gameForm": {
     "numOfQuestions": {
       "label": "No. of questions (per player)",
