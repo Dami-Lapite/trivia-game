@@ -6,6 +6,8 @@
   display: -ms-flexbox;
   display: flex;
   width: 100%;
+  -webkit-animation: 1s ease-out 0s 1 fadeInSlideUp;
+          animation: 1s ease-out 0s 1 fadeInSlideUp;
 }
 
 #game-form {
@@ -59,7 +61,7 @@
 
 .submit-section button {
   margin: 15px;
-  font-family: "Raleway", sans-serif;
+  font-family: "Exo", sans-serif;
   min-width: 180px;
   min-height: 45px;
   border-radius: 0.5em;
@@ -174,12 +176,12 @@
   margin-right: 0;
 }
 
-.choice-select-container .choice-select .choice:hover {
+.choice-select-container .choice-select .choice:not(.selected):hover {
   color: #ffffff;
-  background-color: #424040;
-  -webkit-box-shadow: 0 0 0.5em #424040;
-          box-shadow: 0 0 0.5em #424040;
-  border-color: #424040;
+  background-color: #48b;
+  -webkit-box-shadow: 0 0 0.5em #48b;
+          box-shadow: 0 0 0.5em #48b;
+  border-color: #48b;
 }
 
 .choice-select-container .choice-select .choice.selected {
@@ -234,6 +236,10 @@
 .option-checkbox-container input:checked::before {
   -webkit-transform: scale(1);
           transform: scale(1);
+}
+
+.option-checkbox-container input:hover {
+  translate: 0px -5px;
 }
 
 #game {
@@ -299,13 +305,13 @@
   font-weight: 500;
 }
 
-.question-container .answer-container .answer:hover {
+.question-container .answer-container .answer:not(.selected):hover {
   border-color: #f2eba8;
   background-color: #f2eba8;
 }
 
 .question-container .answer-container .answer.selected {
-  background-color: #424040;
+  background-color: #48b;
   color: #ffffff;
 }
 

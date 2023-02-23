@@ -6,6 +6,10 @@
   font-family: "Teko", sans-serif;
 }
 
+@mixin exo {
+  font-family: "Exo", sans-serif;
+}
+
 @mixin medium-weight {
   font-weight: 500;
 }

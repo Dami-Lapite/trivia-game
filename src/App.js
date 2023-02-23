@@ -44,24 +44,36 @@ class App extends Component {
             </div>
             <TriviaGame content={this.state.content} />
             <div className="footer" id="footer">
-              <a
-                className="text-link"
-                target="_blank"
-                rel="noreferrer"
-                href="https://opentdb.com/api_config.php"
-              >
-                Open Trivia API
-              </a>
-              <a target="_blank" rel="noreferrer" href="https://icons8.com">
-                <img src={icons8} alt="icons8 logo" />
-              </a>
-              <a
-                target="_blank"
-                rel="noreferrer"
-                href="https://github.com/Dami-Lapite/trivia-game"
-              >
-                <img src={github} alt="github logo" />
-              </a>
+              <div className="footer-item">
+                <a
+                  className="text-link"
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://www.damilapite.com/"
+                >
+                  {this.state.content.footer.developer}
+                </a>
+              </div>
+              <div className="footer-item">
+                <a
+                  className="text-link"
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://opentdb.com/api_config.php"
+                >
+                  {this.state.content.footer.openAPI}
+                </a>
+                <a target="_blank" rel="noreferrer" href="https://icons8.com">
+                  <img src={icons8} alt="icons8 logo" />
+                </a>
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://github.com/Dami-Lapite/trivia-game"
+                >
+                  <img src={github} alt="github logo" />
+                </a>
+              </div>
             </div>
           </div>
         ) : (

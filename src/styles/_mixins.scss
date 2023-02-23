@@ -2,7 +2,11 @@
   padding: 0;
   margin: 10px;
   font-size: 2em;
-  font-weight: 400;
+}
+
+@mixin highlight-filter {
+  filter: invert(61%) sepia(11%) saturate(2856%) hue-rotate(169deg)
+    brightness(79%) contrast(80%);
 }
 
 @mixin game-section {
