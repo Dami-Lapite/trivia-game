@@ -6,6 +6,7 @@
   flex-grow: 1;
   display: flex;
   width: 100%;
+  animation: 1s ease-out 0s 1 fadeInSlideUp;
 }
 
 #game-form {
@@ -31,7 +32,7 @@
   width: max-content;
   button {
     margin: 15px;
-    @include raleway-font;
+    @include exo;
     min-width: 180px;
     min-height: 45px;
     border-radius: 0.5em;
@@ -114,11 +115,11 @@
       &:last-child {
         margin-right: 0;
       }
-      &:hover {
+      &:not(.selected):hover {
         color: #ffffff;
-        background-color: $grey;
-        box-shadow: 0 0 0.5em $grey;
-        border-color: $grey;
+        background-color: $blue;
+        box-shadow: 0 0 0.5em $blue;
+        border-color: $blue;
       }
       &.selected {
         background-color: $charcoal;
@@ -156,6 +157,9 @@
     }
     &:checked::before {
       transform: scale(1);
+    }
+    &:hover {
+      translate: 0px -5px;
     }
   }
 }
@@ -195,12 +199,12 @@
         text-align: center;
         @include medium-weight;
       }
-      &:hover {
+      &:not(.selected):hover {
         border-color: $yellow;
         background-color: $yellow;
       }
       &.selected {
-        background-color: $grey;
+        background-color: $blue;
         color: #ffffff;
       }
     }

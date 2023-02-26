@@ -81,5 +81,9 @@
       "suffix": " questions correctly"
     },
     "restart": "Play Again"
+  },
+  "footer": {
+    "openAPI": "Open Trivia API",
+    "developer": "Designed & Developed by Dami Lapite - 2023"
   }
 }
